@@ -17,7 +17,7 @@ export default function AttendeeTable() {
           <th> School </th>
           <th> Accepted </th>
           <th> Confirmed </th>
-          <th> CheckedIn </th>
+          <th> Checked In </th>
           <th> Filter </th>
         </tr>
         <AttendeeRow
