@@ -1,0 +1,78 @@
+.main-toolbar {
+    position: absolute;
+    width: 100%;
+    height: 69px;
+    left: 0px;
+    top: 0px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.13);
+}
+
+.header-text {
+    position: absolute;
+    width: 389px;
+    height: 20px;
+    left: 113px;
+    top: 134px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 39px;
+    line-height: 47px;
+    display: flex;
+    align-items: center;
+
+    color: #4B4B4B;
+}
+
+.subheader-text {    
+    position: absolute;
+    width: 263px;
+    height: 20px;
+    left: 51px;
+    top: 211px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+
+    color: #A4A4A4;
+}
+
+.button-text {
+    position: absolute;
+    width: 173px;
+    height: 20px;
+    left: 1263px;
+    top: 134px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    color: #4B4B4B;
+}
+
+.hackathon-analytics-button {    
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 285px;
+    height: 45px;
+    left: 1184px;
+    top: 122px;
+
+    background: #FBFBFB;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+}
