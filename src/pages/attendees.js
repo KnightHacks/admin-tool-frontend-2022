@@ -1,5 +1,10 @@
-import React from "react"
+import React from "react";
+import AttendeeTable from "../components/Attendee/AttendeeTable";
 
-export default function Attendees(){
-    return (<div><h1>Attendees</h1></div>);
+export default function Attendees() {
+  return (
+    <div>
+      <AttendeeTable />
+    </div>
+  );
 }
