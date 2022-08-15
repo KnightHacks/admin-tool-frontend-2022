@@ -16,7 +16,7 @@ export default function Hackathon({
 	},
 }) {
 	return (
-		<div>
+		<div >
 			<h1>Hackathon</h1>
 		</div>
 	);
