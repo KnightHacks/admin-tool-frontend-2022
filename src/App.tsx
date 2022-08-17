@@ -2,11 +2,8 @@ import React from "react";
 import "./index.css";
 import {
   BrowserRouter,
-  Link,
   Route,
-  useLocation,
   Routes,
-  useNavigate,
 } from "react-router-dom";
 import Home from "./pages/home";
 import Sponsors from "./pages/sponsors";

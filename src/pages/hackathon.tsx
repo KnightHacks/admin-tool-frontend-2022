@@ -1,9 +1,8 @@
 import React from "react";
+import HackathonInfoBar from "../components/hackathon/HackathonInfoBar";
 
 export default function Hackathon() {
   return (
-    <div>
-      <h1>Hackathon</h1>
-    </div>
+    <HackathonInfoBar/>
   );
 }
