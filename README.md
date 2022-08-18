@@ -40,3 +40,5 @@ docker run -itd -p 9090:9090 [--name <container_name>] <image_name>
 `-i, -t, -d, --name` are optional flags. Reference: https://docs.docker.com/engine/reference/run/.
 
 `-p 9090:9090` is required and based on the configured port in the Dockerfile and the NGINX config (default.config).
+
+You can now use the website through the url `http://localhost:9090` in your browser of choice.
