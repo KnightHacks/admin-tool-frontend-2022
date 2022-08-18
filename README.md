@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+<h1 align="center">
+  2022 Knight Hacks Admin Tool
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository is the home for the admin tool used by our hackathon organizers to manage hackathons and the attendees, sponsors, and events at each one.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+```shell
+https://github.com/KnightHacks/admin-tool-frontend-2022
+cd admin-tool-frontend-2022
+npm install
+```
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run a live development server, run the following in a terminal:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```shell
+npm run start
+```
 
-### `npm test`
+This will host the website at http://localhost:3000. As you make updates to the
+code, the development server will automatically reload the page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Building the Docker Image Locally
 
-### `npm run build`
+Build this app into a Docker image:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```shell
+docker build -t <image_name> .
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Run the image as a container:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```shell
+docker run -itd -p 9090:9090 [--name <container_name>] <image_name>
+```
 
-### `npm run eject`
+`-i, -t, -d, --name` are optional flags. Reference: https://docs.docker.com/engine/reference/run/.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+`-p 9090:9090` is required and based on the configured port in the Dockerfile and the NGINX config (default.config).
