@@ -5,14 +5,14 @@ export default function Home() {
   var userName = "John"
   return (
     <div>
-        <div class="main-toolbar"/>
+        <div className="main-toolbar"/>
 
-        <h1 class="header-text">Welcome, {userName}.</h1>
-        <button class="hackathon-analytics-button">
-            <body class="button-text">Hackathon Analytics</body>
+        <h1 className="header-text">Welcome, {userName}.</h1>
+        <button className="hackathon-analytics-button">
+            <body className="button-text">Hackathon Analytics</body>
         </button>
 
-        <h1 class="subheader-text">Upcoming Hackathons</h1>
+        <h1 className="subheader-text">Upcoming Hackathons</h1>
     </div>
   );
 }
