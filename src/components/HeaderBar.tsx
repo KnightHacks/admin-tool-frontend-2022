@@ -1,9 +1,8 @@
 import { ReactComponent as KHLogo } from '../assets/logo.svg';
 import { ReactComponent as DrawerHamburger } from '../assets/drawerHamburger.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function HeaderBar() {
-	let navigate = useNavigate();
 
 	return (
 		<div className="flex justify-between w-full p-8 shadow-headerbar mb-3">
