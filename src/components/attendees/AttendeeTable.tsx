@@ -38,7 +38,26 @@ export default function AttendeeTable() {
 	};
 	// Remove after adding APIs
 	for (var i = 0; i < 10; i++) {
-		attendeeData.push(person1);
+		attendeeData.push({
+			firstName: 'Jane Jane',
+			lastName: 'Doe',
+			email: 'email@domain.com',
+			discord: 'discord#1234',
+			oAuth: 'email',
+			school: 'University of Central Florida',
+			isAccepted: false,
+			isConfirmed: true,
+			isCheckedIn: true,
+			userLink: 'https://google.com',
+			id: i + '',
+			pronouns: {
+				subjective: 'she/her',
+				objective: 'she/her',
+			},
+			phoneNumber: 'num',
+			age: 12,
+			role: 'attendee',
+		});
 	}
 
 	return (
@@ -57,39 +76,46 @@ export default function AttendeeTable() {
 				}}
 			/>
 			<table className="w-full border-collapse border-spacing-0">
-				<tr>
-					<th>
-						{' '}
-						<div id="nameContent">
+				<tbody>
+					<tr>
+						<th>
 							{' '}
-							<text> Name </text>
-							{!namesAscending ? (
-								<button>
-									<SortIcon id="ascendingSort" />
-								</button>
-							) : (
-								<button>
-									<SortIcon id="descendingSort" />
-								</button>
-							)}
-						</div>{' '}
-					</th>
-					<th> Email </th>
-					<th> Discord </th>
-					<th> Auth </th>
-					<th> School </th>
-					<th> Accepted </th>
-					<th> Confirmed </th>
-					<th> Checked In </th>
-					<th id="filterIcon" className="">
-						<div className=" flex w-full justify-end align-center">
-							<FilterIcon />{' '}
-						</div>
-					</th>
-				</tr>
-				{attendeeData.map((attendee) => {
-					return <AttendeeRow attendee={attendee} />;
-				})}
+							<div id="nameContent">
+								{' '}
+								Name
+								{!namesAscending ? (
+									<button>
+										<SortIcon id="ascendingSort" />
+									</button>
+								) : (
+									<button>
+										<SortIcon id="descendingSort" />
+									</button>
+								)}
+							</div>{' '}
+						</th>
+						<th> Email </th>
+						<th> Discord </th>
+						<th> Auth </th>
+						<th> School </th>
+						<th> Accepted </th>
+						<th> Confirmed </th>
+						<th> Checked In </th>
+						<th id="filterIcon" className="">
+							<div className=" flex w-full justify-end align-center">
+								<FilterIcon />{' '}
+							</div>
+						</th>
+					</tr>
+					{attendeeData.map((attendee) => {
+						return (
+							<AttendeeRow
+								key={attendee.id}
+								attendee={attendee}
+							/>
+						);
+					})}
+				</tbody>
 			</table>
 		</>
 	);
