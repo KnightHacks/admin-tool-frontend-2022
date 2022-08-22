@@ -4,6 +4,7 @@ import { Attendee } from '../../interfaces/Attendee';
 import { ReactComponent as FilterIcon } from '../../assets/Attendees/filter.svg';
 import { ReactComponent as SortIcon } from '../../assets/Attendees/sort.svg';
 import './styles.css';
+import Logistics from '../../pages/logistics';
 
 /**
  * Creation of the Attendee Table component for the Attendee page. The filter for the Attendee Table will be applied here to display the corresponding hackers.
@@ -12,6 +13,7 @@ import './styles.css';
 export default function AttendeeTable() {
 	const attendeeData = [];
 
+	const [search, setSearch] = useState('');
 	const [namesAscending, setNamesAscending] = useState(false);
 
 	let person1: Attendee = {
@@ -40,40 +42,55 @@ export default function AttendeeTable() {
 	}
 
 	return (
-		<table className="w-full border-collapse border-spacing-0">
-			<tr>
-				<th>
-					{' '}
-					<div id="nameContent">
+		<>
+			<h1 className=" font-bold text-3xl text-subHeading-color mb-4">
+				{' '}
+				Attendees{' '}
+			</h1>
+			<input
+				id="search"
+				className="mb-8"
+				type={'text'}
+				placeholder="Search Attendees"
+				onChange={(e) => {
+					setSearch(e.target.value);
+				}}
+			/>
+			<table className="w-full border-collapse border-spacing-0">
+				<tr>
+					<th>
 						{' '}
-						<text> Name </text>
-						{!namesAscending ? (
-							<button>
-								<SortIcon id="ascendingSort" />
-							</button>
-						) : (
-							<button>
-								<SortIcon id="descendingSort" />
-							</button>
-						)}
-					</div>{' '}
-				</th>
-				<th> Email </th>
-				<th> Discord </th>
-				<th> Auth </th>
-				<th> School </th>
-				<th> Accepted </th>
-				<th> Confirmed </th>
-				<th> Checked In </th>
-				<th id="filterIcon" className="">
-					<div className=" flex w-full justify-end align-center">
-						<FilterIcon />{' '}
-					</div>
-				</th>
-			</tr>
-			{attendeeData.map((attendee) => {
-				return <AttendeeRow attendee={attendee} />;
-			})}
-		</table>
+						<div id="nameContent">
+							{' '}
+							<text> Name </text>
+							{!namesAscending ? (
+								<button>
+									<SortIcon id="ascendingSort" />
+								</button>
+							) : (
+								<button>
+									<SortIcon id="descendingSort" />
+								</button>
+							)}
+						</div>{' '}
+					</th>
+					<th> Email </th>
+					<th> Discord </th>
+					<th> Auth </th>
+					<th> School </th>
+					<th> Accepted </th>
+					<th> Confirmed </th>
+					<th> Checked In </th>
+					<th id="filterIcon" className="">
+						<div className=" flex w-full justify-end align-center">
+							<FilterIcon />{' '}
+						</div>
+					</th>
+				</tr>
+				{attendeeData.map((attendee) => {
+					return <AttendeeRow attendee={attendee} />;
+				})}
+			</table>
+		</>
 	);
 }

@@ -83,3 +83,12 @@ button {
 	background-color: transparent;
 	border: transparent;
 }
+#search {
+	width: 400px;
+	padding: 9px 4px 9px 40px;
+	background: transparent url('../../assets/Attendees/search.svg') no-repeat
+		center;
+	border: 1px solid #dfe0e2;
+	box-shadow: inset 0px 0px 4px rgba(165, 165, 165, 0.25);
+	border-radius: 10px;
+}

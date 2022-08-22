@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AttendeeTable from '../components/attendees/AttendeeTable';
 
 export default function Attendees() {
