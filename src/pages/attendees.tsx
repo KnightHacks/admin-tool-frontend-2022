@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
+import AttendeeTable from '../components/attendees/AttendeeTable';
 
 export default function Attendees() {
-  return (
-    <div>
-      <h1> Attendee </h1>
-    </div>
-  );
+	return (
+		<div className="w-screen h-screen p-10">
+			<AttendeeTable />
+		</div>
+	);
 }
