@@ -9,6 +9,16 @@
     box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.13);
 }
 
+.generic-profile-icon {
+    position: absolute;
+    width: 41px;
+    height: 42px;
+    left: 54px;
+    top: 123px;
+    background-color: orange;
+    border-radius: 50%;
+}
+
 .header-text {
     position: absolute;
     width: 389px;
@@ -96,6 +106,11 @@
     border-radius: 10px;
 }
 
+.hackathon-analytics-icon {    
+    position: relative;
+    left: 10%;
+}
+
 .create-hackathon-button {
     box-sizing: border-box;
 
@@ -126,4 +141,9 @@
     align-items: center;
 
     color: #4B4B4B;
+}
+
+.create-hackathon-icon {    
+    position: relative;
+    left: 10%;
 }
