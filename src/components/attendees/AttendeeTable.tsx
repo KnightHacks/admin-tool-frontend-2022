@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import AttendeeRow from './AttendeeRow';
-import { Attendee } from '../../interfaces/Attendee';
+import { Attendee } from '../../models/attendee';
 import { ReactComponent as FilterIcon } from '../../assets/Attendees/filter.svg';
 import { ReactComponent as SortIcon } from '../../assets/Attendees/sort.svg';
 import './styles.css';
-import Logistics from '../../pages/logistics';
 
 /**
  * Creation of the Attendee Table component for the Attendee page. The filter for the Attendee Table will be applied here to display the corresponding hackers.
@@ -39,32 +38,15 @@ export default function AttendeeTable() {
 	// Remove after adding APIs
 	for (var i = 0; i < 10; i++) {
 		attendeeData.push({
-			firstName: 'Jane Jane',
-			lastName: 'Doe',
-			email: 'email@domain.com',
-			discord: 'discord#1234',
-			oAuth: 'email',
-			school: 'University of Central Florida',
-			isAccepted: false,
-			isConfirmed: true,
-			isCheckedIn: true,
-			userLink: 'https://google.com',
-			id: i + '',
-			pronouns: {
-				subjective: 'she/her',
-				objective: 'she/her',
-			},
-			phoneNumber: 'num',
-			age: 12,
-			role: 'attendee',
+			...person1,
+			id: '' + i,
 		});
 	}
 
 	return (
 		<>
 			<h1 className=" font-bold text-3xl text-subHeading-color mb-4">
-				{' '}
-				Attendees{' '}
+				Attendees
 			</h1>
 			<input
 				id="search"
@@ -79,9 +61,7 @@ export default function AttendeeTable() {
 				<tbody>
 					<tr>
 						<th>
-							{' '}
 							<div id="nameContent">
-								{' '}
 								Name
 								{!namesAscending ? (
 									<button>
@@ -92,7 +72,7 @@ export default function AttendeeTable() {
 										<SortIcon id="descendingSort" />
 									</button>
 								)}
-							</div>{' '}
+							</div>
 						</th>
 						<th> Email </th>
 						<th> Discord </th>
@@ -103,7 +83,7 @@ export default function AttendeeTable() {
 						<th> Checked In </th>
 						<th id="filterIcon" className="">
 							<div className=" flex w-full justify-end align-center">
-								<FilterIcon />{' '}
+								<FilterIcon />
 							</div>
 						</th>
 					</tr>

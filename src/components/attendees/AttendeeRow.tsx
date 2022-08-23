@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { Attendee } from '../../interfaces/Attendee';
+import { Attendee } from '../../models/attendee';
 import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
 import { ReactComponent as CheckedIcon } from '../../assets/Attendees/checked.svg';
 import { ReactComponent as UncheckedIcon } from '../../assets/Attendees/unchecked.svg';
@@ -15,12 +15,6 @@ interface AttendeeObject {
 	attendee: Attendee;
 }
 export default function AttendeeRow({ attendee }: AttendeeObject) {
-	function getCheckBox(isChecked: boolean) {
-		if (isChecked) {
-			return <CheckedIcon />;
-		}
-		return <UncheckedIcon />;
-	}
 	return (
 		<tr>
 			<td>
@@ -29,7 +23,6 @@ export default function AttendeeRow({ attendee }: AttendeeObject) {
 			<td> {attendee.email} </td>
 			<td> {attendee.discord} </td>
 			<td>
-				{' '}
 				{attendee.oAuth === 'email' ? (
 					<div className=" flex w-full justify-center align-center">
 						<EmailIcon />
@@ -38,7 +31,7 @@ export default function AttendeeRow({ attendee }: AttendeeObject) {
 					<div className=" flex w-full justify-center align-center">
 						<GoogleIcon />
 					</div>
-				)}{' '}
+				)}
 			</td>
 			<td> {attendee.school} </td>
 			<td>
@@ -57,14 +50,12 @@ export default function AttendeeRow({ attendee }: AttendeeObject) {
 				</div>
 			</td>
 			<td>
-				{' '}
 				<button id="openUser">
-					{' '}
 					<div id="openUserContent">
 						<OpenIcon />
 						<div> Open User </div>
 					</div>
-				</button>{' '}
+				</button>
 			</td>
 		</tr>
 	);
