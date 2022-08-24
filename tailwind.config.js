@@ -15,6 +15,9 @@ module.exports = {
 			fontFamily: {
 				Inter: ['Inter', 'Arial', 'sans-serif'],
 			},
+			boxShadow: {
+				headerbar: '0px 2px 11px rgba(0, 0, 0, 0.13)',
+			},
 		},
 	},
 	plugins: [],
