@@ -1,7 +1,9 @@
 import './home.css';
 import React from 'react';
+import { ReactComponent as PageLinksIcon} from '../assets/arrow.svg';
 import { ReactComponent as CreateHackathonIcon } from '../assets/createHackathonIcon.svg';
 import { ReactComponent as HackathonAnalyticsIcon } from '../assets/hackathonAnalyticsIcon.svg';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 	var userName = 'John';
@@ -13,9 +15,11 @@ export default function Home() {
 			</div>
 
 			<div className="hackathon-analytics">
-				<button id="hackathon-analytics-button" />
-				<HackathonAnalyticsIcon id="hackathon-analytics-icon" />
-				<body id="hackathon-analytics-text">Hackathon Analytics</body>
+        <Link to="/analytics">
+          <button id="hackathon-analytics-button" />
+          <HackathonAnalyticsIcon id="hackathon-analytics-icon" />
+          <body id="hackathon-analytics-text">Hackathon Analytics</body>
+        </Link>
 			</div>
 
 			<div className="subheader-1">
@@ -29,34 +33,51 @@ export default function Home() {
 				{/* </div> */}
 
 				{/* <div className="go-to-hackathon"> */}
-					<button className="hackathon-rectangle-button" id="hr-button-1"/>
-					{/* <Arrow className="arrow" style={{top: 1.96, left: 1.98}}/> */}
+        <Link to="/hackathon">
+          <button className="hackathon-rectangle-button" id="hr-button-1"/>
+					<PageLinksIcon className="arrow" id="hr-icon-button-1"/> 
 					<body className="hr-button-text" id="hr-button-text-1">Go to Hackathon</body>
+        </Link>
 				{/* </div> */}
 
 				{/* <div className="attendees"> */}
-					<button className="hackathon-rectangle-button" id="hr-button-2"/>
+        <Link to="/attendees">
+          <button className="hackathon-rectangle-button" id="hr-button-2"/>
+          <PageLinksIcon className="arrow" id="hr-icon-button-2"/> 
 					<body className="hr-button-text" id="hr-button-text-2"> Attendees </body>
+        </Link>
 				{/* </div> */}
 
 				{/* <div className="sponsors"> */}
-					<button className="hackathon-rectangle-button" id="hr-button-3"/>
+        <Link to="/sponsors">
+          <button className="hackathon-rectangle-button" id="hr-button-3"/>
+          <PageLinksIcon className="arrow" id="hr-icon-button-3"/> 
 					<body className="hr-button-text" id="hr-button-text-3"> Sponsors </body>
+        </Link>
 				{/* </div> */}
 
 				{/* <div className="edit-details"> */}
-					<button className="hackathon-rectangle-button" id="hr-button-4"/>
+        <Link to="/">
+          <button className="hackathon-rectangle-button" id="hr-button-4"/>
+          <PageLinksIcon className="arrow" id="hr-icon-button-4"/> 
 					<body className="hr-button-text" id="hr-button-text-4"> Edit Details </body>
+        </Link>
 				{/* </div> */}
 
 				{/* <div className="schedule"> */}
-					<button className="hackathon-rectangle-button" id="hr-button-5"/>
-					<body className="hr-button-text" id="hr-button-text-5"> Schedule </body>
+        <Link to="/schedule">
+          	<button className="hackathon-rectangle-button" id="hr-button-5"/>
+            <PageLinksIcon className="arrow" id="hr-icon-button-5"/> 
+            <body className="hr-button-text" id="hr-button-text-5"> Schedule </body>
+        </Link>
 				{/* </div> */}
 
 				{/* <div className="settings"> */}
-					<button className="hackathon-rectangle-button" id="hr-button-6"/>
+        <Link to="/">
+          <button className="hackathon-rectangle-button" id="hr-button-6"/>
+          <PageLinksIcon className="arrow" id="hr-icon-button-6"/> 
 					<body className="hr-button-text" id="hr-button-text-6"> Settings </body>
+        </Link>
 				{/* </div> */}
 			{/* </div> */}
 

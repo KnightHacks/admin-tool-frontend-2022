@@ -101,13 +101,7 @@
 }
 
 .arrow {
-    position: relative;
-    left: 9.9%;
-    right: 9.79%;
-    top: 9.79%;
-    bottom: 9.9%;
-
-    background: #505050;
+    color: #505050;
 }
 
 #hr-button-1 {
@@ -204,6 +198,54 @@
     height: 26px;
     left: 978px;
     top: 422px;
+}
+
+#hr-icon-button-1 {
+    position: absolute;
+    left: 9.9%;
+    right: 9.79%;
+    top: 9.79%;
+    bottom: 9.9%;
+}
+
+#hr-icon-button-2 {
+    position: absolute;
+    left: 9.9%;
+    right: 9.79%;
+    top: 9.79%;
+    bottom: 9.9%;
+}
+
+#hr-icon-button-3 {
+    position: absolute;
+    left: 9.9%;
+    right: 9.79%;
+    top: 9.79%;
+    bottom: 9.9%;
+}
+
+#hr-icon-button-4 {
+    position: absolute;
+    left: 9.9%;
+    right: 9.79%;
+    top: 9.79%;
+    bottom: 9.9%;
+}
+
+#hr-icon-button-5 {
+    position: absolute;
+    left: 9.9%;
+    right: 9.79%;
+    top: 9.79%;
+    bottom: 9.9%;
+}
+
+#hr-icon-button-6 {
+    position: absolute;
+    left: 9.9%;
+    right: 9.79%;
+    top: 9.79%;
+    bottom: 9.9%;
 }
 
 #hackathon-rectangle {
