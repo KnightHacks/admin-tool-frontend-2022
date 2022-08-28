@@ -1,15 +1,243 @@
-.main-toolbar {
-    position: absolute;
-    width: 100%;
-    height: 69px;
-    left: 0px;
-    top: 0px;
-    
-    background: #FFFFFF;
-    box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.13);
+.header {
+
 }
 
-.generic-profile-icon {
+.hackathon-analytics {
+
+}
+
+.subheader-1 {
+
+}
+
+.page-links {
+    position: absolute;
+    top: 260px;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    width: 100%;
+    height: 230px;
+}
+
+.create-hackathon {
+
+}
+
+.subheader-2 {
+
+}
+
+.table {
+
+}
+
+.background-card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.go-to-hackathon {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+.attendees {
+
+}
+
+.sponsors {
+
+}
+
+.edit-details {
+
+}
+
+.schedule {
+
+}
+
+.settings {
+
+}
+
+.go-to-hackathon {
+    position: relative;
+    width: 41px;
+    height: 42px;
+    left: 54px;
+    top: 123px;
+}
+
+.hackathon-rectangle-button {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 390px;
+    height: 56px;
+    
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+}
+
+.hr-button-text {
+    position: absolute;
+    width: 255px;
+    height: 26px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    color: #505050;
+}
+
+.arrow {
+    position: relative;
+    left: 9.9%;
+    right: 9.79%;
+    top: 9.79%;
+    bottom: 9.9%;
+
+    background: #505050;
+}
+
+#hr-button-1 {
+    position: absolute;
+    width: 390px;
+    height: 56px;
+    left: 92px;
+    top: 331px;
+}
+
+#hr-button-2 {
+    position: absolute;
+    width: 389px;
+    height: 56px;
+    left: 509px;
+    top: 331px;
+}
+
+#hr-button-3 {
+    position: absolute;
+    width: 390px;
+    height: 56px;
+    left: 925px;
+    top: 331px;
+}
+
+#hr-button-4 {
+    position: absolute;
+    width: 390px;
+    height: 56px;
+    left: 93px;
+    top: 407px;
+}
+
+#hr-button-5 {
+    position: absolute;
+    width: 389px;
+    height: 56px;
+    left: 510px;
+    top: 407px;
+}
+
+#hr-button-6 {
+    position: absolute;
+    width: 389px;
+    height: 56px;
+    left: 926px;
+    top: 407px;
+}
+
+#hr-button-text-1 {
+    position: absolute;
+    width: 255px;
+    height: 26px;
+    left: 141px;
+    top: 346px;
+}
+
+#hr-button-text-2 {    
+    position: absolute;
+    width: 255px;
+    height: 26px;
+    left: 562px;
+    top: 346px;
+}
+
+#hr-button-text-3 {
+    position: absolute;
+    width: 255px;
+    height: 26px;
+    left: 978px;
+    top: 346px;
+}
+
+#hr-button-text-4 {
+    position: absolute;
+    width: 255px;
+    height: 26px;
+    left: 143px;
+    top: 422px;
+}
+
+#hr-button-text-5 {
+    position: absolute;
+    width: 255px;
+    height: 26px;
+    left: 562px;
+    top: 422px;
+}
+
+#hr-button-text-6 {
+    position: absolute;
+    width: 255px;
+    height: 26px;
+    left: 978px;
+    top: 422px;
+}
+
+#hackathon-rectangle {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1412px;
+    height: 230px;
+    left: 54px;
+    top: 261px;
+
+    background: #FBFBFB;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+}
+
+#hackathon-rectangle-text {
+    position: absolute;
+    width: 263px;
+    height: 20px;
+    left: 88px;
+    top: 288px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+
+    color: #4B4B4B;
+}
+
+#generic-profile-icon {
     position: absolute;
     width: 41px;
     height: 42px;
@@ -19,7 +247,7 @@
     border-radius: 50%;
 }
 
-.header-text {
+#header-text {
     position: absolute;
     width: 389px;
     height: 20px;
@@ -37,7 +265,7 @@
     color: #4B4B4B;
 }
 
-.subheader-text-1 {    
+#subheader-1-text {    
     position: absolute;
     width: 263px;
     height: 20px;
@@ -55,7 +283,7 @@
     color: #A4A4A4;
 }
 
-.subheader-text-2 {    
+#subheader-2-text {    
     position: absolute;
     width: 263px;
     height: 20px;
@@ -73,7 +301,7 @@
     color: #A4A4A4;
 }
 
-.hackathon-analytics-text {
+#hackathon-analytics-text {
     position: absolute;
     width: 173px;
     height: 20px;
@@ -92,7 +320,7 @@
 
 }
 
-.hackathon-analytics-button {    
+#hackathon-analytics-button {    
     box-sizing: border-box;
 
     position: absolute;
@@ -106,12 +334,12 @@
     border-radius: 10px;
 }
 
-.hackathon-analytics-icon {    
+#hackathon-analytics-icon {    
     position: relative;
     left: 10%;
 }
 
-.create-hackathon-button {
+#create-hackathon-button {
     box-sizing: border-box;
 
     position: absolute;
@@ -125,7 +353,7 @@
     border-radius: 10px;
 }
 
-.create-hackathon-text {
+#create-hackathon-text {
     position: absolute;
     width: 153px;
     height: 20px;
@@ -143,7 +371,7 @@
     color: #4B4B4B;
 }
 
-.create-hackathon-icon {    
+#create-hackathon-icon {    
     position: relative;
     left: 10%;
 }
