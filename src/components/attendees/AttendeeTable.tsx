@@ -186,13 +186,12 @@ export default function AttendeeTable() {
 											id="openUser"
 											onClick={() => {
 												if (!popUp.seenAttendeePopUp) {
-													setPopUp((popUp) => ({
-														...popUp,
+													setPopUp({
 														seenAttendeePopUp: true,
 														selectedAttendee:
 															attendee,
 														open: true,
-													}));
+													});
 												} else {
 													setPopUp((popUp) => ({
 														...popUp,
@@ -205,7 +204,7 @@ export default function AttendeeTable() {
 										>
 											<div id="openUserContent">
 												<OpenIcon />
-												<div> Open User </div>
+												Open User
 											</div>
 										</button>
 									</td>

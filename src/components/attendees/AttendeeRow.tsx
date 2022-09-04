@@ -1,10 +1,8 @@
 import './styles.css';
 import { Attendee } from '../../models/attendee';
-import { ReactComponent as CheckedIcon } from '../../assets/Attendees/checked.svg';
-import { ReactComponent as UncheckedIcon } from '../../assets/Attendees/unchecked.svg';
+import AttendeeCheckBox from './AttendeeCheckBox';
 import { ReactComponent as EmailIcon } from '../../assets/Attendees/google.svg';
 import { ReactComponent as GoogleIcon } from '../../assets/Attendees/email.svg';
-
 /**
  * @returns row for an attendee in the attendee table.
  */
@@ -31,19 +29,13 @@ export default function AttendeeRow({ attendee }: AttendeeObject) {
 			</td>
 			<td> {attendee.school} </td>
 			<td>
-				<div className="flex w-full justify-center align-center">
-					{attendee.isAccepted ? <CheckedIcon /> : <UncheckedIcon />}
-				</div>
+				<AttendeeCheckBox isChecked={attendee.isAccepted ?? false} />
 			</td>
 			<td>
-				<div className="flex w-full justify-center align-center">
-					{attendee.isConfirmed ? <CheckedIcon /> : <UncheckedIcon />}
-				</div>
+				<AttendeeCheckBox isChecked={attendee.isConfirmed ?? false} />
 			</td>
 			<td>
-				<div className="flex w-full justify-center align-center">
-					{attendee.isCheckedIn ? <CheckedIcon /> : <UncheckedIcon />}
-				</div>
+				<AttendeeCheckBox isChecked={attendee.isCheckedIn ?? false} />
 			</td>
 		</>
 	);
