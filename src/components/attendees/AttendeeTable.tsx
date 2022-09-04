@@ -112,14 +112,7 @@ export default function AttendeeTable() {
 												<CloseIcon />
 											</button>
 											<div className=" text-popup-heading text-bold text-xl">
-												{
-													popUp.selectedAttendee
-														.firstName
-												}
-												{
-													popUp.selectedAttendee
-														.lastName
-												}
+												{`${popUp.selectedAttendee.firstName} ${popUp.selectedAttendee.lastName}`}
 											</div>
 										</div>
 										<AttendeePopUp

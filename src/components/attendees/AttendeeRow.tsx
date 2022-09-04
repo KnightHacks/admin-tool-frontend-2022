@@ -15,9 +15,7 @@ interface AttendeeObject {
 export default function AttendeeRow({ attendee }: AttendeeObject) {
 	return (
 		<>
-			<td>
-				{attendee.firstName} {attendee.lastName}
-			</td>
+			<td>{`${attendee.firstName} ${attendee.lastName}`}</td>
 			<td> {attendee.email} </td>
 			<td> {attendee.discord} </td>
 			<td>
