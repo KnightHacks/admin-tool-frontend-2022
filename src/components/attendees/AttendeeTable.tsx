@@ -97,7 +97,7 @@ export default function AttendeeTable() {
 								leaveFrom="opacity-100 translate-y-0 sm:scale-100"
 								leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
 							>
-								<Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full md:w-5/6 pb-10 max-w-[900px]">
+								<Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-5/6 pb-10 max-w-[900px]">
 									<div className="w-full h-max pb-10 bg-white rounded-xl flex flex-col">
 										<div className="px-8 py-4 text-xl font-bold flex items-start justify-start gap-4">
 											<button
