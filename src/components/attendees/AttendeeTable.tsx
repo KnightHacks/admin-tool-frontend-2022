@@ -45,7 +45,7 @@ export default function AttendeeTable() {
 
 	return (
 		<>
-			<h1 className=" font-bold text-3xl text-subHeading-color mb-4">
+			<h1 className="font-bold text-3xl text-subHeading-color mb-4">
 				Attendees
 			</h1>
 			<input
