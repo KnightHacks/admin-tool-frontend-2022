@@ -2,6 +2,7 @@
 	margin-left: 40px;
 	margin-right: 40px;
 	display: block;
+	margin-top: 49px;
 }
 
 /* #region Page Header */
@@ -72,7 +73,7 @@
 /* #region Page Subheader 1 */
 
 #page-subheader-1-text {
-	margin-top: 10px;
+	margin-top: 26px;
 
 	font-family: 'Inter';
 	font-style: normal;
@@ -159,7 +160,7 @@
 	align-items: center;
 	justify-content: space-between;
 
-	margin-top: 20px;
+	margin-top: 45px;
 }
 
 #page-subheader-2-text {

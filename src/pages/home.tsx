@@ -20,9 +20,9 @@ export default function Home() {
 				<Link to="/analytics">
 					<button id="page-header-button">
 						<HackathonAnalyticsIcon id="page-header-button-icon" />
-						<body id="page-header-button-text">
+						<p id="page-header-button-text">
 							Hackathon Analytics
-						</body>
+						</p>
 					</button>
 				</Link>
 			</div>
@@ -36,54 +36,54 @@ export default function Home() {
 					<Link to="/hackathon">
 						<button className="page-links-grid-button">
 							<PageLinksIcon className="page-links-grid-button-icon" />
-							<body className="page-links-grid-button-text">
+							<p className="page-links-grid-button-text">
 								Go to Hackathon
-							</body>
+							</p>
 						</button>
 					</Link>
 
 					<Link to="/attendees">
 						<button className="page-links-grid-button">
 							<PageLinksIcon className="page-links-grid-button-icon" />
-							<body className="page-links-grid-button-text">
+							<p className="page-links-grid-button-text">
 								Attendees
-							</body>
+							</p>
 						</button>
 					</Link>
 
 					<Link to="/sponsors">
 						<button className="page-links-grid-button">
 							<PageLinksIcon className="page-links-grid-button-icon" />
-							<body className="page-links-grid-button-text">
+							<p className="page-links-grid-button-text">
 								Sponsors
-							</body>
+							</p>
 						</button>
 					</Link>
 
 					<Link to="/edit-details">
 						<button className="page-links-grid-button">
 							<PageLinksIcon className="page-links-grid-button-icon" />
-							<body className="page-links-grid-button-text">
+							<p className="page-links-grid-button-text">
 								Edit Details
-							</body>
+							</p>
 						</button>
 					</Link>
 
 					<Link to="/schedule">
 						<button className="page-links-grid-button">
 							<PageLinksIcon className="page-links-grid-button-icon" />
-							<body className="page-links-grid-button-text">
+							<p className="page-links-grid-button-text">
 								Schedule
-							</body>
+							</p>
 						</button>
 					</Link>
 
 					<Link to="/settings">
 						<button className="page-links-grid-button">
 							<PageLinksIcon className="page-links-grid-button-icon" />
-							<body className="page-links-grid-button-text">
+							<p className="page-links-grid-button-text">
 								Settings
-							</body>
+							</p>
 						</button>
 					</Link>
 				</div>
@@ -95,9 +95,9 @@ export default function Home() {
 				<Link to="/">
 					<button id="page-subheader-2-button">
 						<CreateHackathonIcon id="page-subheader-2-button-icon" />
-						<body id="page-subheader-2-button-text">
+						<p id="page-subheader-2-button-text">
 							Create Hackathon
-						</body>
+						</p>
 					</button>
 				</Link>
 			</div>
