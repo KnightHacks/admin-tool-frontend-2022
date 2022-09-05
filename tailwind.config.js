@@ -6,10 +6,11 @@ module.exports = {
 			colors: {
 				'status-active': '#3bd205',
 				'status-inactive': '#d20505',
-				'hinfobar-border': '#cccccc',
+				'border-gray': '#cccccc',
 				'hinfobar-subtext': '#8d8d8d',
 				'hinfobar-maintext': '#4b4b4b',
 				'hinfobar-bg': '#FBFBFB',
+				'launch-gray': '#848484',
 			},
 			fontFamily: {
 				Inter: ['Inter', 'Arial', 'sans-serif'],

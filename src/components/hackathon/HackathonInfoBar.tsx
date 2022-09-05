@@ -18,7 +18,7 @@ export default function HackathonInfoBar({
 	let navigate = useNavigate();
 
 	return (
-		<div className="flex bg-hinfobar-bg border-hinfobar-border border-b h-[144px]">
+		<div className="flex bg-hinfobar-bg border-border-gray border-b h-[144px]">
 			<div className="flex flex-col justify-center min-w-fit pl-16 ">
 				<div className="flex justify-center items-center">
 					<p className="text-hinfobar-maintext text-3xl font-Inter font-extrabold">
