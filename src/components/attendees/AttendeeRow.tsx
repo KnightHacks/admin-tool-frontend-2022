@@ -1,23 +1,30 @@
-import './styles.css';
 import { Attendee } from '../../models/attendee';
 import AttendeeCheckBox from './AttendeeCheckBox';
 import { ReactComponent as EmailIcon } from '../../assets/Attendees/google.svg';
 import { ReactComponent as GoogleIcon } from '../../assets/Attendees/email.svg';
+import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
+import './styles.css';
+
 /**
  * @returns row for an attendee in the attendee table.
  */
 
-interface AttendeeObject {
+export default function AttendeeRow(props: {
+	popUp: {
+		seenAttendeePopUp: boolean;
+		selectedAttendee: Attendee;
+		open: boolean;
+	};
 	attendee: Attendee;
-}
-export default function AttendeeRow({ attendee }: AttendeeObject) {
+	setOpen: (isOpen: boolean) => void;
+}) {
 	return (
 		<>
-			<td>{`${attendee.firstName} ${attendee.lastName}`}</td>
-			<td> {attendee.email} </td>
-			<td> {attendee.discord} </td>
+			<td>{`${props.attendee.firstName} ${props.attendee.lastName}`}</td>
+			<td> {props.attendee.email} </td>
+			<td> {props.attendee.discord} </td>
 			<td>
-				{attendee.oAuth === 'email' ? (
+				{props.attendee.oAuth === 'email' ? (
 					<div className="flex w-full justify-center align-center">
 						<EmailIcon />
 					</div>
@@ -27,15 +34,36 @@ export default function AttendeeRow({ attendee }: AttendeeObject) {
 					</div>
 				)}
 			</td>
-			<td> {attendee.school} </td>
+			<td> {props.attendee.school} </td>
 			<td>
-				<AttendeeCheckBox isChecked={attendee.isAccepted ?? false} />
+				<AttendeeCheckBox
+					isChecked={props.attendee.isAccepted ?? false}
+				/>
 			</td>
 			<td>
-				<AttendeeCheckBox isChecked={attendee.isConfirmed ?? false} />
+				<AttendeeCheckBox
+					isChecked={props.attendee.isConfirmed ?? false}
+				/>
 			</td>
 			<td>
-				<AttendeeCheckBox isChecked={attendee.isCheckedIn ?? false} />
+				<AttendeeCheckBox
+					isChecked={props.attendee.isCheckedIn ?? false}
+				/>
+			</td>
+			<td>
+				<button
+					id="openUser"
+					onClick={() => {
+						{
+							props.setOpen(true);
+						}
+					}}
+				>
+					<div id="openUserContent">
+						<OpenIcon />
+						Open User
+					</div>
+				</button>
 			</td>
 		</>
 	);
