@@ -19,6 +19,10 @@ th {
 	padding-left: 10px;
 }
 
+.topBorder {
+	border-top: 2px solid #e8e8e8;
+}
+
 td {
 	white-space: nowrap;
 	overflow: hidden;
