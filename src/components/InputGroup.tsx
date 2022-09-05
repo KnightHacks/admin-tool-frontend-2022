@@ -1,3 +1,8 @@
+/**
+ * @param value initial value for the input.
+ * @param setValue function that takes the updated inputValue and sets it.
+ * @param label label for the input.
+ */
 export default function InputGroup(props: {
 	value: string;
 	setValue: (updatedValue: string | undefined) => void;

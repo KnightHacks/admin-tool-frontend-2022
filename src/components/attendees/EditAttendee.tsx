@@ -4,12 +4,12 @@ import { ReactComponent as DeleteIcon } from '../../assets/Attendees/delete.svg'
 
 import { Attendee } from '../../models/attendee';
 import { useState } from 'react';
-import InputGroup from './InputGroup';
+import InputGroup from '../InputGroup';
 
 /***
  * @return form to edit attendee details.
  */
-export default function AttendeePopUp(props: { selectedAttendee: Attendee }) {
+export default function EditAttende(props: { selectedAttendee: Attendee }) {
 	const [attendee, setAttendee] = useState<Attendee>(props.selectedAttendee);
 	return (
 		<>
