@@ -1,7 +1,7 @@
-import './home.css';
-import { ReactComponent as PageLinksIcon } from '../assets/arrow.svg';
-import { ReactComponent as CreateHackathonIcon } from '../assets/createHackathonIcon.svg';
-import { ReactComponent as HackathonAnalyticsIcon } from '../assets/hackathonAnalyticsIcon.svg';
+import '../components/home/home.css';
+import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg';
+import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg';
+import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
