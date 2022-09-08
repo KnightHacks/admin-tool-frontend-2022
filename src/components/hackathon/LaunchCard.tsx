@@ -1,11 +1,15 @@
 interface LaunchCardProps {
 	icon: JSX.Element;
 	text: string;
+	onClick: () => void;
 }
 
-export default function LaunchCard({ icon, text }: LaunchCardProps) {
+export default function LaunchCard({ icon, text, onClick }: LaunchCardProps) {
 	return (
-		<button className="rounded-lg border border-solid border-border-gray text-left bg-white w-[400px] h-[170px] flex flex-col justify-evenly px-8 m-8">
+		<button
+			onClick={onClick}
+			className="rounded-lg border border-solid border-border-gray text-left bg-white min-h-[170px] flex flex-col justify-evenly px-8 m-4 w-[250px] md:w-[400px]"
+		>
 			<div className="w-[52px] h-[52px] bg-launch-gray rounded-full flex items-center justify-center">
 				{icon}
 			</div>
