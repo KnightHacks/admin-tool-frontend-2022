@@ -70,21 +70,6 @@
 
 /* #endregion Page Header */
 
-/* #region Page Subheader 1 */
-
-#page-subheader-1-text {
-	margin-top: 26px;
-
-	font: 'Inter';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 24px;
-
-	color: #a4a4a4;
-}
-
-/* #endregion Page Subheader 1 */
-
 /* #region Page Links */
 
 #page-links {
@@ -159,7 +144,20 @@
 
 /* #endregion Page Links */
 
-/* #region Page Subheader 2 */
+/* #region Page Subheaders */
+
+.page-subheader-text {
+	font: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+
+	color: #a4a4a4;
+}
+
+#page-subheader-1-text {
+	margin-top: 26px;
+}
 
 #page-subheader-2 {
 	display: flex;
@@ -167,15 +165,6 @@
 	justify-content: space-between;
 
 	margin-top: 45px;
-}
-
-#page-subheader-2-text {
-	font: 'Inter';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 24px;
-
-	color: #a4a4a4;
 }
 
 #page-subheader-2-button {
@@ -209,4 +198,4 @@
 	color: #4b4b4b;
 }
 
-/* #endregion Page Subheader 2 */
+/* #endregion Page Subheaders */

@@ -58,7 +58,7 @@ export default function Home() {
 				</Link>
 			</div>
 
-			<h1 id="page-subheader-1-text">Upcoming Hackathon</h1>
+			<h1 className="page-subheader-text" id="page-subheader-1-text">Upcoming Hackathon</h1>
 
 			<div id="page-links">
 				<h1 id="page-links-header">Fall 2022</h1>
@@ -78,7 +78,7 @@ export default function Home() {
 			</div>
 
 			<div id="page-subheader-2">
-				<h1 id="page-subheader-2-text">Recent Hackathons</h1>
+				<h1 className="page-subheader-text">Recent Hackathons</h1>
 
 				<Link to="/">
 					<button id="page-subheader-2-button">
