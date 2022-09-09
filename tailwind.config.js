@@ -10,6 +10,7 @@ module.exports = {
 				'hinfobar-subtext': '#8d8d8d',
 				'hinfobar-maintext': '#4b4b4b',
 				'hinfobar-bg': '#FBFBFB',
+				'subHeading-color': '#626262;',
 			},
 			fontFamily: {
 				Inter: ['Inter', 'Arial', 'sans-serif'],
