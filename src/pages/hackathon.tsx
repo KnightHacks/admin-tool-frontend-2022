@@ -13,7 +13,7 @@ export default function Hackathon() {
 	return (
 		<>
 			<HackathonInfoBar />
-			<div className="flex flex-wrap w-full justify-center bg-red-100 mt-4">
+			<div className="flex flex-wrap w-full justify-center mt-4">
 				<LaunchCard
 					text="Event Logistics"
 					icon={<LogisticsIcon />}

@@ -6,7 +6,7 @@ interface LaunchCardProps {
 
 export default function LaunchCard({ icon, text, onClick }: LaunchCardProps) {
 	return (
-		<div className="min-h-[170px] lg:px-8 px-4 md:w-1/3 w-full my-4 bg-blue-100">
+		<div className="min-h-[170px] lg:px-8 px-4 md:w-1/3 w-full my-4">
 			<button
 				onClick={onClick}
 				className="rounded-lg border border-solid border-border-gray text-left bg-white flex flex-col justify-evenly w-full h-full lg:px-8 px-4"
