@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
 	dummyHackathonData,
 	Hackathon,
@@ -16,6 +16,7 @@ export default function HackathonInfoBar({
 	hackathonData = dummyHackathonData[0],
 }: HackathonProps) {
 	let navigate = useNavigate();
+	const location = useLocation();
 
 	return (
 		<div className="flex bg-hinfobar-bg border-hinfobar-border border-b h-[144px]">
@@ -26,13 +27,17 @@ export default function HackathonInfoBar({
 							' ' +
 							hackathonData.term.year}
 					</p>
-					<div
-						className={`w-4 h-4 rounded-full ml-2 ${
-							hackathonData.status === HackathonStatus.PRESENT
-								? 'bg-status-active'
-								: 'bg-status-inactive'
-						}`}
-					/>
+					{location.pathname === '/hackathon' ? (
+						<div
+							className={`w-4 h-4 rounded-full ml-2 ${
+								hackathonData.status === HackathonStatus.PRESENT
+									? 'bg-status-active'
+									: 'bg-status-inactive'
+							}`}
+						/>
+					) : (
+						<></>
+					)}
 				</div>
 				<p className="text-hinfobar-subtext text-xl font-Inter font-semibold">
 					{getDateRangeString(hackathonData)}
