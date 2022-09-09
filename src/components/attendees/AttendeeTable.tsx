@@ -1,36 +1,23 @@
-import React, { useState, useRef, Fragment } from 'react';
+import React, { useState } from 'react';
 import AttendeeRow from './AttendeeRow';
-import PopUp from '../PopUp';
 import { Attendee } from '../../models/attendee';
 import { ReactComponent as FilterIcon } from '../../assets/Attendees/filter.svg';
 import { ReactComponent as SortIcon } from '../../assets/Attendees/sort.svg';
-import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
 import './styles.css';
-import EditAttende from './EditAttendee';
 
 /**
  * Creation of the Attendee Table component for the Attendee page. The filter for the Attendee Table will be applied here to display the corresponding hackers.
  * @returns the table of selected hackathon attendees.
  */
 export default function AttendeeTable() {
-	const attendeeData: Array<Attendee> = [];
+	const attendeeData = [];
 
 	const [search, setSearch] = useState('');
 	const [namesAscending, setNamesAscending] = useState(false);
 
-	const [popUp, setPopUp] = useState<{
-		seenAttendeePopUp: boolean;
-		selectedAttendee: Attendee;
-		open: boolean;
-	}>({
-		seenAttendeePopUp: false,
-		selectedAttendee: {},
-		open: false,
-	});
-
-	let blankAttendee: Attendee = {
-		firstName: 'Jane',
-		lastName: 'Doe Doe',
+	let person1: Attendee = {
+		firstName: 'Jane Jane',
+		lastName: 'Doe',
 		email: 'email@domain.com',
 		discord: 'discord#1234',
 		oAuth: 'email',
@@ -48,122 +35,68 @@ export default function AttendeeTable() {
 		age: 12,
 		role: 'attendee',
 	};
-	// TODO: Remove after adding APIs
+	// Remove after adding APIs
 	for (var i = 0; i < 10; i++) {
 		attendeeData.push({
-			...blankAttendee,
+			...person1,
 			id: '' + i,
 		});
 	}
 
 	return (
 		<>
-			{/* PopUp Component */}
-			<PopUp
-				open={popUp.open}
-				setOpen={(isOpen) => {
-					setPopUp((popUp) => ({
-						...popUp,
-
-						open: isOpen,
-					}));
+			<h1 className="font-bold text-3xl text-subHeading-color mb-4">
+				Attendees
+			</h1>
+			<input
+				id="search"
+				className="mb-8"
+				type={'text'}
+				placeholder="Search Attendees"
+				onChange={(e) => {
+					setSearch(e.target.value);
 				}}
-				headerContent={
-					<div className=" text-popup-heading text-bold text-xl">
-						{`${popUp.selectedAttendee.firstName} ${popUp.selectedAttendee.lastName}`}
-					</div>
-				}
-				bodyContent={
-					<EditAttende selectedAttendee={popUp.selectedAttendee} />
-				}
-			></PopUp>
-			{/* Search Component */}
-			<div className="h-auto w-full px-5">
-				<h1 className=" font-bold text-3xl text-subHeading-color mb-4">
-					Attendees
-				</h1>
-				<input
-					id="search"
-					className="mb-8"
-					type={'text'}
-					placeholder="Search Attendees"
-					onChange={(e) => {
-						setSearch(e.target.value);
-					}}
-				/>
-			</div>
-			{/* Table Component */}
-			<div className="h-full w-full overflow-auto  p-5">
-				<table className="w-full border-collapse border-spacing-0 p-5">
-					<tbody>
-						<tr>
-							<th>
-								<div id="nameContent">
-									Name
-									{!namesAscending ? (
-										<button>
-											<SortIcon id="ascendingSort" />
-										</button>
-									) : (
-										<button>
-											<SortIcon id="descendingSort" />
-										</button>
-									)}
-								</div>
-							</th>
-							<th> Email </th>
-							<th> Discord </th>
-							<th> Auth </th>
-							<th> School </th>
-							<th> Accepted </th>
-							<th> Confirmed </th>
-							<th> Checked In </th>
-							<th id="filterIcon" className="">
-								<div className=" flex w-full justify-end align-center">
-									<FilterIcon />
-								</div>
-							</th>
-						</tr>
-						{attendeeData.map((attendee) => {
-							return (
-								<tr key={attendee.id}>
-									<AttendeeRow
-										key={attendee.id}
-										attendee={attendee}
-									/>
-									<td>
-										<button
-											id="openUser"
-											onClick={() => {
-												if (!popUp.seenAttendeePopUp) {
-													setPopUp({
-														seenAttendeePopUp: true,
-														selectedAttendee:
-															attendee,
-														open: true,
-													});
-												} else {
-													setPopUp((popUp) => ({
-														...popUp,
-														selectedAttendee:
-															attendee,
-														open: true,
-													}));
-												}
-											}}
-										>
-											<div id="openUserContent">
-												<OpenIcon />
-												Open User
-											</div>
-										</button>
-									</td>
-								</tr>
-							);
-						})}
-					</tbody>
-				</table>
-			</div>
+			/>
+			<table className="w-full border-collapse border-spacing-0">
+				<tbody>
+					<tr>
+						<th>
+							<div id="nameContent">
+								Name
+								{!namesAscending ? (
+									<button>
+										<SortIcon id="ascendingSort" />
+									</button>
+								) : (
+									<button>
+										<SortIcon id="descendingSort" />
+									</button>
+								)}
+							</div>
+						</th>
+						<th> Email </th>
+						<th> Discord </th>
+						<th> Auth </th>
+						<th> School </th>
+						<th> Accepted </th>
+						<th> Confirmed </th>
+						<th> Checked In </th>
+						<th id="filterIcon" className="">
+							<div className=" flex w-full justify-end align-center">
+								<FilterIcon />
+							</div>
+						</th>
+					</tr>
+					{attendeeData.map((attendee) => {
+						return (
+							<AttendeeRow
+								key={attendee.id}
+								attendee={attendee}
+							/>
+						);
+					})}
+				</tbody>
+			</table>
 		</>
 	);
 }
