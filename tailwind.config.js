@@ -20,6 +20,7 @@ module.exports = {
 				'red-action-color': '#C14C4C',
 				'red-action-border': '#FD9999',
 				'overlay-bg': '#737272',
+				'schedule-header': '#4B4B4B',
 			},
 			fontFamily: {
 				Inter: ['Inter', 'Arial', 'sans-serif'],
