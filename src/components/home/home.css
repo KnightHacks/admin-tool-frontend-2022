@@ -29,7 +29,7 @@
 	width: 100%;
 	padding-left: 10px;
 
-	font-family: 'Inter';
+	font: 'Inter';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 39px;
@@ -60,7 +60,7 @@
 	position: relative;
 	left: 40px;
 
-	font-family: 'Inter';
+	font: 'Inter';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 17px;
@@ -75,7 +75,7 @@
 #page-subheader-1-text {
 	margin-top: 26px;
 
-	font-family: 'Inter';
+	font: 'Inter';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 24px;
@@ -105,7 +105,7 @@
 }
 
 #page-links-header {
-	font-family: 'Inter';
+	font: 'Inter';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 24px;
@@ -149,7 +149,7 @@
 	position: relative;
 	left: 40px;
 
-	font-family: 'Inter';
+	font: 'Inter';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 17px;
@@ -170,7 +170,7 @@
 }
 
 #page-subheader-2-text {
-	font-family: 'Inter';
+	font: 'Inter';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 24px;
@@ -201,7 +201,7 @@
 	position: relative;
 	left: 40px;
 
-	font-family: 'Inter';
+	font: 'Inter';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 17px;
