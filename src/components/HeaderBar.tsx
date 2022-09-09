@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function HeaderBar() {
 	return (
-		<div className="flex justify-between w-full p-4 shadow-headerbar mb-3">
+		<div className="flex mb-2 justify-between w-full p-4 shadow-headerbar">
 			<div className="flex items-center">
 				{/* TODO: Open drawer */}
 				<Link to="/">

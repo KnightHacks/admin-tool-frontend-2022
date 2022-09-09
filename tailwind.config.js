@@ -11,6 +11,7 @@ module.exports = {
 				'hinfobar-maintext': '#4b4b4b',
 				'hinfobar-bg': '#FBFBFB',
 				'launch-gray': '#848484',
+				'subHeading-color': '#626262;',
 			},
 			fontFamily: {
 				Inter: ['Inter', 'Arial', 'sans-serif'],
