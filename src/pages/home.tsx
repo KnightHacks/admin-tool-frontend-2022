@@ -9,35 +9,12 @@ export default function Home() {
 	let userName: string = 'John';
 
 	const pageLinks = [
-		{
-			route: '/hackathon',
-			buttonText: 'Go to Hackathon',
-		},
-
-		{
-			route: '/attendees',
-			buttonText: 'Attendees',
-		},
-
-		{
-			route: '/sponsors',
-			buttonText: 'Sponsors',
-		},
-
-		{
-			route: '/edit-details',
-			buttonText: 'Edit Details',
-		},
-
-		{
-			route: '/schedule',
-			buttonText: 'Schedule',
-		},
-
-		{
-			route: '/settings',
-			buttonText: 'Settings',
-		},
+		{ route: '/hackathon', buttonText: 'Go to Hackathon' },
+		{ route: '/attendees', buttonText: 'Attendees' },
+		{ route: '/sponsors', buttonText: 'Sponsors' },
+		{ route: '/edit-details', buttonText: 'Edit Details' },
+		{ route: '/schedule', buttonText: 'Schedule' },
+		{ route: '/settings', buttonText: 'Settings' },
 	];
 
 	return (
