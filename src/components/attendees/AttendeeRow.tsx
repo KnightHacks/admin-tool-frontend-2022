@@ -1,62 +1,70 @@
-import React from 'react';
-import './styles.css';
 import { Attendee } from '../../models/attendee';
-import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
-import { ReactComponent as CheckedIcon } from '../../assets/Attendees/checked.svg';
-import { ReactComponent as UncheckedIcon } from '../../assets/Attendees/unchecked.svg';
+import AttendeeCheckBox from './AttendeeCheckBox';
 import { ReactComponent as EmailIcon } from '../../assets/Attendees/google.svg';
 import { ReactComponent as GoogleIcon } from '../../assets/Attendees/email.svg';
+import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
+import './styles.css';
 
 /**
  * @returns row for an attendee in the attendee table.
  */
 
-interface AttendeeObject {
+export default function AttendeeRow(props: {
+	popUp: {
+		seenAttendeePopUp: boolean;
+		selectedAttendee: Attendee;
+		open: boolean;
+	};
 	attendee: Attendee;
-}
-export default function AttendeeRow({ attendee }: AttendeeObject) {
+	setOpen: (isOpen: boolean) => void;
+}) {
 	return (
-		<tr>
+		<>
+			<td>{`${props.attendee.firstName} ${props.attendee.lastName}`}</td>
+			<td> {props.attendee.email} </td>
+			<td> {props.attendee.discord} </td>
 			<td>
-				{attendee.firstName} {attendee.lastName}
-			</td>
-			<td> {attendee.email} </td>
-			<td> {attendee.discord} </td>
-			<td>
-				{attendee.oAuth === 'email' ? (
-					<div className=" flex w-full justify-center align-center">
+				{props.attendee.oAuth === 'email' ? (
+					<div className="flex w-full justify-center align-center">
 						<EmailIcon />
 					</div>
 				) : (
-					<div className=" flex w-full justify-center align-center">
+					<div className="flex w-full justify-center align-center">
 						<GoogleIcon />
 					</div>
 				)}
 			</td>
-			<td> {attendee.school} </td>
+			<td> {props.attendee.school} </td>
 			<td>
-				<div className=" flex w-full justify-center align-center">
-					{attendee.isAccepted ? <CheckedIcon /> : <UncheckedIcon />}
-				</div>
+				<AttendeeCheckBox
+					isChecked={props.attendee.isAccepted ?? false}
+				/>
 			</td>
 			<td>
-				<div className=" flex w-full justify-center align-center">
-					{attendee.isConfirmed ? <CheckedIcon /> : <UncheckedIcon />}
-				</div>
+				<AttendeeCheckBox
+					isChecked={props.attendee.isConfirmed ?? false}
+				/>
 			</td>
 			<td>
-				<div className=" flex w-full justify-center align-center">
-					{attendee.isCheckedIn ? <CheckedIcon /> : <UncheckedIcon />}
-				</div>
+				<AttendeeCheckBox
+					isChecked={props.attendee.isCheckedIn ?? false}
+				/>
 			</td>
 			<td>
-				<button id="openUser">
+				<button
+					id="openUser"
+					onClick={() => {
+						{
+							props.setOpen(true);
+						}
+					}}
+				>
 					<div id="openUserContent">
 						<OpenIcon />
-						<div> Open User </div>
+						Open User
 					</div>
 				</button>
 			</td>
-		</tr>
+		</>
 	);
 }
