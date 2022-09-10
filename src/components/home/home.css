@@ -1,8 +1,9 @@
 #page {
 	margin-left: 40px;
 	margin-right: 40px;
-	display: block;
 	margin-top: 49px;
+	
+	display: block;
 }
 
 /* #region Page Header */
@@ -21,6 +22,7 @@
 #page-header-main-generic-profile-icon {
 	width: 40px;
 	height: 40px;
+
 	background-color: orange;
 	border-radius: 50px;
 }
@@ -41,22 +43,18 @@
 	width: 250px;
 	height: 45px;
 
+	white-space: nowrap;
+
 	background: #fbfbfb;
 	border: 1px solid #cccccc;
 	border-radius: 10px;
 
-	display: flex;
+	padding-left: 10%;
+	padding-right: 30%;
+
+	display: grid;
+	grid-template-columns: 30% 70%;
 	align-items: center;
-}
-
-#page-header-button-icon {
-	position: relative;
-	left: 20px;
-}
-
-#page-header-button-text {
-	position: relative;
-	left: 40px;
 
 	font: 'Inter';
 	font-style: normal;
@@ -109,7 +107,9 @@
 .page-links-grid-button {
 	width: 400px;
 	height: 60px;
-	
+
+	white-space: nowrap;
+
 	margin-top: 15px;
 	margin-right: 15px;
 
@@ -117,25 +117,20 @@
 	border: 1px solid #cccccc;
 	border-radius: 10px;
 
-	display: flex;
+	padding-left: 5%;
+	padding-right: 50%;
+
+	display: grid;
+	grid-template-columns: 30% 70%;
 	align-items: center;
-}
-
-.page-links-grid-button-icon {
-	position: relative;
-	left: 20px;
-}
-
-.page-links-grid-button-text {
-	position: relative;
-	left: 40px;
+	justify-items: flex-start;
 
 	font: 'Inter';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 17px;
 
-	color: #505050;
+	color: #4b4b4b;
 }
 
 /* #endregion Page Links */
@@ -167,22 +162,18 @@
 	width: 220px;
 	height: 45px;
 
+	white-space: nowrap;
+
 	background: #fbfbfb;
 	border: 1px solid #cccccc;
 	border-radius: 10px;
 
-	display: flex;
+	padding-left: 10%;
+	padding-right: 30%;
+
+	display: grid;
+	grid-template-columns: 30% 70%;
 	align-items: center;
-}
-
-#page-subheader-2-button-icon {
-	position: relative;
-	left: 20px;
-}
-
-#page-subheader-2-button-text {
-	position: relative;
-	left: 40px;
 
 	font: 'Inter';
 	font-style: normal;

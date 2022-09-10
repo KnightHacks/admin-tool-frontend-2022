@@ -50,15 +50,15 @@ export default function Home() {
 
 				<Link to="/analytics">
 					<button id="page-header-button">
-						<HackathonAnalyticsIcon id="page-header-button-icon" />
-						<p id="page-header-button-text">
-							Hackathon Analytics
-						</p>
+						<HackathonAnalyticsIcon />
+						<p>Hackathon Analytics</p>
 					</button>
 				</Link>
 			</div>
 
-			<h1 className="page-subheader-text" id="page-subheader-1-text">Upcoming Hackathon</h1>
+			<h1 className="page-subheader-text" id="page-subheader-1-text">
+				Upcoming Hackathon
+			</h1>
 
 			<div id="page-links">
 				<h1 id="page-links-header">Fall 2022</h1>
@@ -67,10 +67,8 @@ export default function Home() {
 					{pageLinks.map((pageLink) => (
 						<Link to={pageLink.route}>
 							<button className="page-links-grid-button">
-								<PageLinksIcon className="page-links-grid-button-icon" />
-								<body className="page-links-grid-button-text">
-									{pageLink.buttonText}
-								</body>
+								<PageLinksIcon />
+								<body>{pageLink.buttonText}</body>
 							</button>
 						</Link>
 					))}
@@ -82,10 +80,8 @@ export default function Home() {
 
 				<Link to="/">
 					<button id="page-subheader-2-button">
-						<CreateHackathonIcon id="page-subheader-2-button-icon" />
-						<p id="page-subheader-2-button-text">
-							Create Hackathon
-						</p>
+						<CreateHackathonIcon />
+						<p>Create Hackathon</p>
 					</button>
 				</Link>
 			</div>
