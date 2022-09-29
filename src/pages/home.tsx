@@ -41,11 +41,11 @@ export default function Home() {
 				<h1 id="page-links-header">Fall 2022</h1>
 
 				<div id="page-links-grid">
-					{pageLinks.map((pageLink) => (
-						<Link to={pageLink.route}>
+					{pageLinks.map(({route, buttonText}) => (
+						<Link key={route} to={route}>
 							<button className="page-links-grid-button">
 								<PageLinksIcon />
-								<p>{pageLink.buttonText}</p>
+								<p>{buttonText}</p>
 							</button>
 						</Link>
 					))}
