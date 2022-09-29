@@ -28,7 +28,7 @@ export default function Home() {
 				<Link to="/analytics">
 					<button id="page-header-button">
 						<HackathonAnalyticsIcon />
-						<p>Hackathon Analytics</p>
+						<text>Hackathon Analytics</text>
 					</button>
 				</Link>
 			</div>
@@ -45,7 +45,7 @@ export default function Home() {
 						<Link to={pageLink.route}>
 							<button className="page-links-grid-button">
 								<PageLinksIcon />
-								<body>{pageLink.buttonText}</body>
+								<text>{pageLink.buttonText}</text>
 							</button>
 						</Link>
 					))}
@@ -58,7 +58,7 @@ export default function Home() {
 				<Link to="/">
 					<button id="page-subheader-2-button">
 						<CreateHackathonIcon />
-						<p>Create Hackathon</p>
+						<text>Create Hackathon</text>
 					</button>
 				</Link>
 			</div>
