@@ -19,8 +19,8 @@ export default function HackathonInfoBar({
 	const location = useLocation();
 
 	return (
-		<div className="flex bg-hinfobar-bg border-hinfobar-border border-b h-[144px]">
-			<div className="flex flex-col justify-center min-w-fit pl-16 ">
+		<div className="flex bg-hinfobar-bg border-border-gray border-b h-[144px] lg:p-16 p-8">
+			<div className="flex flex-col justify-center min-w-fit">
 				<div className="flex justify-center items-center">
 					<p className="text-hinfobar-maintext text-3xl font-Inter font-extrabold">
 						{hackathonData.term.semester +
@@ -43,7 +43,7 @@ export default function HackathonInfoBar({
 					{getDateRangeString(hackathonData)}
 				</p>
 			</div>
-			<div className="flex h-full w-full justify-end items-center pr-16 text-3xl">
+			<div className="md:flex hidden h-full w-full justify-end items-center text-3xl">
 				<HackathonInfoCard
 					label="Hackers"
 					count={hackathonData.attendees.length}

@@ -1,39 +1,3 @@
-table {
-	border-collapse: collapse;
-	border-spacing: 5px;
-}
-
-tr {
-	text-align: start;
-}
-
-th {
-	border-bottom: 2px solid #e8e8e8;
-	min-width: 50px;
-	white-space: nowrap;
-	font-weight: 700;
-	font-size: 20px;
-	color: #4b4b4b;
-	padding: 5px;
-	padding-right: 10px;
-	padding-left: 10px;
-}
-
-td {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-
-	border-bottom: 2px solid #e8e8e8;
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 24px;
-	color: #7f7f7f;
-	padding: 10px;
-
-	text-align: center;
-}
-
 #openUser {
 	width: 171px;
 	height: 39px;
@@ -81,15 +45,11 @@ td {
 	color: #505050;
 }
 
-button {
-	background-color: transparent;
-	border: transparent;
-}
-
 #search {
 	width: 400px;
 	padding: 9px 4px 9px 40px;
-	background: transparent url('../../assets/Attendees/search.svg') no-repeat center;
+	background: transparent url('../../assets/Attendees/search.svg') no-repeat
+		center;
 	border: 1px solid #dfe0e2;
 	box-shadow: inset 0px 0px 4px rgba(165, 165, 165, 0.25);
 	border-radius: 10px;
