@@ -118,20 +118,24 @@
 	border: 1px solid #cccccc;
 	border-radius: 10px;
 
-	padding-left: 5%;
-	padding-right: 50%;
-
-	display: grid;
-	grid-template-columns: 30% 70%;
+	display: flex;
 	align-items: center;
-	justify-items: flex-start;
+
+	color: #4b4b4b;
+}
+
+.page-links-grid-button-icon {
+	padding-left: 20px;
+	width: 40px;
+}
+
+.page-links-grid-button-text {
+	padding-left: 20px;
 
 	font: 'Inter';
 	font-style: normal;
 	font-weight: 600;
 	font-size: 17px;
-
-	color: #4b4b4b;
 }
 
 /* #endregion Page Links */

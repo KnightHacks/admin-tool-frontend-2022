@@ -44,8 +44,8 @@ export default function Home() {
 					{pageLinks.map(({route, buttonText}) => (
 						<Link key={route} to={route}>
 							<button className="page-links-grid-button">
-								<PageLinksIcon />
-								<p>{buttonText}</p>
+								<PageLinksIcon className="page-links-grid-button-icon" />
+								<p className="page-links-grid-button-text">{buttonText}</p>
 							</button>
 						</Link>
 					))}
