@@ -1,9 +1,9 @@
-import { Attendee } from '../../models/Attendee';
-import AttendeeCheckBox from './AttendeeCheckBox';
-import { ReactComponent as EmailIcon } from '../../assets/Attendees/google.svg';
-import { ReactComponent as GoogleIcon } from '../../assets/Attendees/email.svg';
-import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
-import './Styles.css';
+import { Attendee } from '../../models/Attendee'
+import AttendeeCheckBox from './AttendeeCheckBox'
+import { ReactComponent as EmailIcon } from '../../assets/Attendees/google.svg'
+import { ReactComponent as GoogleIcon } from '../../assets/Attendees/email.svg'
+import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg'
+import './Styles.css'
 
 /**
  * @returns row for an attendee in the attendee table.
@@ -11,12 +11,12 @@ import './Styles.css';
 
 export default function AttendeeRow(props: {
 	popUp: {
-		seenAttendeePopUp: boolean;
-		selectedAttendee: Attendee;
-		open: boolean;
-	};
-	attendee: Attendee;
-	setOpen: (isOpen: boolean) => void;
+		seenAttendeePopUp: boolean
+		selectedAttendee: Attendee
+		open: boolean
+	}
+	attendee: Attendee
+	setOpen: (isOpen: boolean) => void
 }) {
 	return (
 		<>
@@ -55,7 +55,7 @@ export default function AttendeeRow(props: {
 					id="openUser"
 					onClick={() => {
 						{
-							props.setOpen(true);
+							props.setOpen(true)
 						}
 					}}
 				>
@@ -66,5 +66,5 @@ export default function AttendeeRow(props: {
 				</button>
 			</td>
 		</>
-	);
+	)
 }

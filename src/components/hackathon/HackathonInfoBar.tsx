@@ -1,22 +1,22 @@
-import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {
 	dummyHackathonData,
 	Hackathon,
 	HackathonStatus,
-} from '../../models/Hackathon';
-import { getDateRangeString } from '../../util/DateUtil';
-import HackathonInfoCard from './HackathonInfoCard';
+} from '../../models/Hackathon'
+import { getDateRangeString } from '../../util/DateUtil'
+import HackathonInfoCard from './HackathonInfoCard'
 
 interface HackathonProps {
-	hackathonData?: Hackathon;
+	hackathonData?: Hackathon
 }
 
 export default function HackathonInfoBar({
 	hackathonData = dummyHackathonData[0],
 }: HackathonProps) {
-	let navigate = useNavigate();
-	const location = useLocation();
+	let navigate = useNavigate()
+	const location = useLocation()
 
 	return (
 		<div className="flex bg-hinfobar-bg border-border-gray border-b h-[144px] lg:p-16 p-8">
@@ -61,5 +61,5 @@ export default function HackathonInfoBar({
 				/>
 			</div>
 		</div>
-	);
+	)
 }

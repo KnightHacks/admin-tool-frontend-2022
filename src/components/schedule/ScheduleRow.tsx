@@ -1,36 +1,36 @@
-import { Event as HackathonEvent } from '../../models/Event';
-import { ReactComponent as EditIcon } from '../../assets/Schedule/edit.svg';
-import { ReactComponent as DeleteIcon } from '../../assets/Schedule/delete.svg';
-import PopUp from '../PopUp';
-import { useState } from 'react';
+import { Event as HackathonEvent } from '../../models/Event'
+import { ReactComponent as EditIcon } from '../../assets/Schedule/edit.svg'
+import { ReactComponent as DeleteIcon } from '../../assets/Schedule/delete.svg'
+import PopUp from '../PopUp'
+import { useState } from 'react'
 
 export default function ScheduleRow(props: { event: HackathonEvent }) {
 	const [editPopUp, setEditPopUp] = useState<{
-		open: boolean;
-		seen: boolean;
-		selectedEvent?: HackathonEvent;
+		open: boolean
+		seen: boolean
+		selectedEvent?: HackathonEvent
 	}>({
 		open: false,
 		seen: false,
 		selectedEvent: undefined,
-	});
+	})
 
 	const [deletePopUp, setDeletePopUp] = useState<{
-		open: boolean;
-		seen: boolean;
-		selectedEvent?: HackathonEvent;
+		open: boolean
+		seen: boolean
+		selectedEvent?: HackathonEvent
 	}>({
 		open: false,
 		seen: false,
 		selectedEvent: undefined,
-	});
+	})
 
 	function getTime(date: Date) {
 		return date.toLocaleString('en-US', {
 			hour: 'numeric',
 			minute: 'numeric',
 			hour12: true,
-		});
+		})
 	}
 	return (
 		<>
@@ -42,12 +42,12 @@ export default function ScheduleRow(props: { event: HackathonEvent }) {
 							...editPopUp,
 							seen: true,
 							open: isOpen,
-						});
+						})
 					} else {
 						setEditPopUp({
 							...editPopUp,
 							open: isOpen,
-						});
+						})
 					}
 				}}
 				headerContent={<></>}
@@ -62,12 +62,12 @@ export default function ScheduleRow(props: { event: HackathonEvent }) {
 							...deletePopUp,
 							seen: true,
 							open: isOpen,
-						});
+						})
 					} else {
 						setDeletePopUp({
 							...editPopUp,
 							open: isOpen,
-						});
+						})
 					}
 				}}
 				headerContent={<></>}
@@ -108,5 +108,5 @@ export default function ScheduleRow(props: { event: HackathonEvent }) {
 				</button>
 			</td>
 		</>
-	);
+	)
 }

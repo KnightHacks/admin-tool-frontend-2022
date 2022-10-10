@@ -1,14 +1,14 @@
-import React from 'react';
-import './index.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Sponsors from './pages/Sponsors';
-import Attendees from './pages/Attendees';
-import Schedule from './pages/Schedule';
-import Hackathon from './pages/Hackathon';
-import Analytics from './pages/Analytics';
-import Logistics from './pages/Logistics';
-import HeaderBar from './components/HeaderBar';
+import React from 'react'
+import './index.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Sponsors from './pages/Sponsors'
+import Attendees from './pages/Attendees'
+import Schedule from './pages/Schedule'
+import Hackathon from './pages/Hackathon'
+import Analytics from './pages/Analytics'
+import Logistics from './pages/Logistics'
+import HeaderBar from './components/HeaderBar'
 
 function App() {
 	return (
@@ -26,7 +26,7 @@ function App() {
 				</Routes>
 			</BrowserRouter>
 		</div>
-	);
+	)
 }
 
-export default App;
+export default App

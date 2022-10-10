@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute } from 'react';
+import { HTMLInputTypeAttribute } from 'react'
 
 /**
  * Creates an input with its corresponding label.
@@ -8,10 +8,10 @@ import { HTMLInputTypeAttribute } from 'react';
  * @param type type of input, by default this is text
  */
 export default function InputGroup(props: {
-	value: any;
-	setValue: (updatedValue: any | undefined) => void;
-	label: string;
-	type?: HTMLInputTypeAttribute;
+	value: any
+	setValue: (updatedValue: any | undefined) => void
+	label: string
+	type?: HTMLInputTypeAttribute
 }) {
 	return (
 		<div className={'w-full flex flex-col items-center justify-start'}>
@@ -23,9 +23,9 @@ export default function InputGroup(props: {
 				type={props.type ?? 'text'}
 				value={props.value}
 				onChange={(e) => {
-					props.setValue(e.target.value);
+					props.setValue(e.target.value)
 				}}
 			/>
 		</div>
-	);
+	)
 }
