@@ -1,0 +1,191 @@
+#page {
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 49px;
+	
+	display: block;
+}
+
+/* #region Page Header */
+
+#page-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#page-header-main {
+	display: flex;
+	align-items: center;
+}
+
+#page-header-main-generic-profile-icon {
+	width: 40px;
+	height: 40px;
+
+	background-color: orange;
+	border-radius: 50px;
+}
+
+#page-header-main-text {
+	width: 100%;
+	padding-left: 10px;
+
+	font: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 39px;
+
+	color: #4b4b4b;
+}
+
+#page-header-button {
+	width: 250px;
+	height: 45px;
+
+	white-space: nowrap;
+
+	background: #fbfbfb;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+
+	padding-left: 10%;
+	padding-right: 30%;
+
+	display: grid;
+	grid-template-columns: 30% 70%;
+	align-items: center;
+
+	font: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 17px;
+
+	color: #4b4b4b;
+}
+
+/* #endregion Page Header */
+
+/* #region Page Links */
+
+#page-links {
+	position: relative;
+
+	width: full;
+
+	padding: 20px;
+
+	background: #fbfbfb;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+
+	margin-top: 20px;
+
+	display: block;
+	overflow: auto;
+}
+
+#page-links-header {
+	font: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+
+	color: #4b4b4b;
+}
+
+#page-links-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#page-links-grid > * {
+	flex-shrink: 1;
+	flex-basis: 33%;
+}
+
+.page-links-grid-button {
+	width: 400px;
+	height: 60px;
+
+	white-space: nowrap;
+
+	margin-top: 15px;
+	margin-inline: 15px;
+
+	background: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+
+	display: flex;
+	align-items: center;
+
+	color: #4b4b4b;
+}
+
+.page-links-grid-button-icon {
+	padding-left: 20px;
+	width: 40px;
+}
+
+.page-links-grid-button-text {
+	padding-left: 20px;
+
+	font: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 17px;
+}
+
+/* #endregion Page Links */
+
+/* #region Page Subheaders */
+
+.page-subheader-text {
+	font: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+
+	color: #a4a4a4;
+}
+
+#page-subheader-1-text {
+	margin-top: 26px;
+}
+
+#page-subheader-2 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	margin-top: 45px;
+}
+
+#page-subheader-2-button {
+	width: 220px;
+	height: 45px;
+
+	white-space: nowrap;
+
+	background: #fbfbfb;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+
+	padding-left: 10%;
+	padding-right: 30%;
+
+	display: grid;
+	grid-template-columns: 30% 70%;
+	align-items: center;
+
+	font: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 17px;
+
+	color: #4b4b4b;
+}
+
+/* #endregion Page Subheaders */
