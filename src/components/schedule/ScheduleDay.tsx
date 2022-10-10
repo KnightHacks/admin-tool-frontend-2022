@@ -1,7 +1,8 @@
 import { Event as HackathonEvent } from '../../models/Event'
 import Table from '../Table'
-import ScheduleRow from './ScheduleRow'
 import DayHeader from './DayHeader'
+import ScheduleRow from './ScheduleRow'
+
 export default function ScheduleDay(props: {
 	events: Array<HackathonEvent>
 	dayNum: number

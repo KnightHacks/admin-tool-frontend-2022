@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import AttendeeTable from '../components/attendees/AttendeeTable'
 import HackathonInfoBar from '../components/hackathon/HackathonInfoBar'
 

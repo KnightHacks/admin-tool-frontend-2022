@@ -1,4 +1,3 @@
-import React from 'react'
 import HackathonInfoBar from '../components/hackathon/HackathonInfoBar'
 import ScheduleDay from '../components/schedule/ScheduleDay'
 import { Event } from '../models/Event'

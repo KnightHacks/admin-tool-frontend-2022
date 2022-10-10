@@ -1,9 +1,8 @@
-import React from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import {
 	dummyHackathonData,
 	Hackathon,
-	HackathonStatus,
+	HackathonStatus
 } from '../../models/Hackathon'
 import { getDateRangeString } from '../../util/DateUtil'
 import HackathonInfoCard from './HackathonInfoCard'

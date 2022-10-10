@@ -1,5 +1,5 @@
-import { useRef, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useRef } from 'react'
 import { ReactComponent as CloseIcon } from '../assets/Attendees/close.svg'
 
 /**
