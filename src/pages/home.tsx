@@ -1,12 +1,12 @@
-import '../components/home/home.css';
-import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg';
-import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg';
-import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg'
+import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg'
+import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg'
+import '../components/home/Home.css'
 
 export default function Home() {
 	// TODO: This user name should be generic.
-	let userName: string = 'John';
+	let userName: string = 'John'
 
 	const pageLinks = [
 		{ route: '/hackathon', buttonText: 'Go to Hackathon' },
@@ -15,7 +15,7 @@ export default function Home() {
 		{ route: '/edit-details', buttonText: 'Edit Details' },
 		{ route: '/schedule', buttonText: 'Schedule' },
 		{ route: '/settings', buttonText: 'Settings' },
-	];
+	]
 
 	return (
 		<div id="page">
@@ -65,5 +65,5 @@ export default function Home() {
 
 			{/* TODO: Add Table Component Here */}
 		</div>
-	);
+	)
 }

@@ -1,16 +1,16 @@
-import { ReactComponent as AdmitIcon } from '../../assets/Attendees/admit.svg';
-import { ReactComponent as CheckInIcon } from '../../assets/Attendees/checkin.svg';
-import { ReactComponent as DeleteIcon } from '../../assets/Attendees/delete.svg';
+import { ReactComponent as AdmitIcon } from '../../assets/Attendees/admit.svg'
+import { ReactComponent as CheckInIcon } from '../../assets/Attendees/checkin.svg'
+import { ReactComponent as DeleteIcon } from '../../assets/Attendees/delete.svg'
 
-import { Attendee } from '../../models/attendee';
-import { useState } from 'react';
-import InputGroup from '../InputGroup';
+import { useState } from 'react'
+import { Attendee } from '../../models/Attendee'
+import InputGroup from '../InputGroup'
 
 /***
  * @return form to edit attendee details.
  */
 export default function EditAttende(props: { selectedAttendee: Attendee }) {
-	const [attendee, setAttendee] = useState<Attendee>(props.selectedAttendee);
+	const [attendee, setAttendee] = useState<Attendee>(props.selectedAttendee)
 	return (
 		<>
 			<span className="h-[1.5px] m-0 p-0 w-full bg-gray-200"></span>
@@ -26,7 +26,7 @@ export default function EditAttende(props: { selectedAttendee: Attendee }) {
 							setAttendee((attendee) => ({
 								...attendee,
 								firstName: updatedValue,
-							}));
+							}))
 						}}
 					/>
 
@@ -37,7 +37,7 @@ export default function EditAttende(props: { selectedAttendee: Attendee }) {
 							setAttendee((attendee) => ({
 								...attendee,
 								lastName: updatedValue,
-							}));
+							}))
 						}}
 					/>
 
@@ -48,7 +48,7 @@ export default function EditAttende(props: { selectedAttendee: Attendee }) {
 							setAttendee((attendee) => ({
 								...attendee,
 								email: updatedValue,
-							}));
+							}))
 						}}
 					/>
 
@@ -59,7 +59,7 @@ export default function EditAttende(props: { selectedAttendee: Attendee }) {
 							setAttendee((attendee) => ({
 								...attendee,
 								discord: updatedValue,
-							}));
+							}))
 						}}
 					/>
 
@@ -70,7 +70,7 @@ export default function EditAttende(props: { selectedAttendee: Attendee }) {
 							setAttendee((attendee) => ({
 								...attendee,
 								school: updatedValue,
-							}));
+							}))
 						}}
 					/>
 				</div>
@@ -94,5 +94,5 @@ export default function EditAttende(props: { selectedAttendee: Attendee }) {
 				</div>
 			</div>
 		</>
-	);
+	)
 }
