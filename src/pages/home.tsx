@@ -1,4 +1,4 @@
-import '../components/home/home.css';
+import '../components/home/Home.css';
 import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg';
 import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg';
 import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg';

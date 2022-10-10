@@ -1,4 +1,4 @@
-import './styles.css';
+import './Styles.css';
 
 /**
  * Creates the table component with all default styling.

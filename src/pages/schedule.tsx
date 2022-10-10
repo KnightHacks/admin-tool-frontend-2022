@@ -1,8 +1,8 @@
 import React from 'react';
 import HackathonInfoBar from '../components/hackathon/HackathonInfoBar';
 import ScheduleDay from '../components/schedule/ScheduleDay';
-import { Event } from '../models/event';
-import { dummyHackathonData } from '../models/hackathon';
+import { Event } from '../models/Event';
+import { dummyHackathonData } from '../models/Hackathon';
 
 export default function Schedule() {
 	const sampleEvent: Event = {

@@ -1,4 +1,4 @@
-import { Hackathon } from './hackathon';
+import { Hackathon } from './Hackathon';
 
 export interface Event {
 	name: string;

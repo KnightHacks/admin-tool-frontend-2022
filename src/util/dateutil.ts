@@ -1,4 +1,4 @@
-import { Hackathon } from '../models/hackathon';
+import { Hackathon } from '../models/Hackathon';
 
 const allMonths = [
 	'January',

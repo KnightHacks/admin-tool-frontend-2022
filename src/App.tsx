@@ -1,13 +1,13 @@
 import React from 'react';
 import './index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/home';
-import Sponsors from './pages/sponsors';
-import Attendees from './pages/attendees';
-import Schedule from './pages/schedule';
-import Hackathon from './pages/hackathon';
-import Analytics from './pages/analytics';
-import Logistics from './pages/logistics';
+import Home from './pages/Home';
+import Sponsors from './pages/Sponsors';
+import Attendees from './pages/Attendees';
+import Schedule from './pages/Schedule';
+import Hackathon from './pages/Hackathon';
+import Analytics from './pages/Analytics';
+import Logistics from './pages/Logistics';
 import HeaderBar from './components/HeaderBar';
 
 function App() {

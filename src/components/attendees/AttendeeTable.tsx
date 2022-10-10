@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PopUp from '../PopUp';
-import { Attendee } from '../../models/attendee';
+import { Attendee } from '../../models/Attendee';
 import AttendeeRow from './AttendeeRow';
 import AttendeeTableHeader from './AttendeeTableHeader';
 import EditAttende from './EditAttendee';

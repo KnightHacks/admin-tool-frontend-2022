@@ -4,8 +4,8 @@ import {
 	dummyHackathonData,
 	Hackathon,
 	HackathonStatus,
-} from '../../models/hackathon';
-import { getDateRangeString } from '../../util/dateutil';
+} from '../../models/Hackathon';
+import { getDateRangeString } from '../../util/DateUtil';
 import HackathonInfoCard from './HackathonInfoCard';
 
 interface HackathonProps {

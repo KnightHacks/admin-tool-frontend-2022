@@ -1,4 +1,4 @@
-import { Event as HackathonEvent } from '../../models/event';
+import { Event as HackathonEvent } from '../../models/Event';
 import { ReactComponent as EditIcon } from '../../assets/Schedule/edit.svg';
 import { ReactComponent as DeleteIcon } from '../../assets/Schedule/delete.svg';
 import PopUp from '../PopUp';
