@@ -1,27 +1,40 @@
-div {
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-items: center;
-}
-
-h1 {
+h1, p {
     font: 'Inter';
     font-style: normal;
 }
 
-.break {
-    flex-basis: 100%;
-    height: 0;
+p {
+    font-weight: 700;
+    font-size: 17px;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    
+    box-shadow: inset 0px 1px 7px rgba(165, 165, 165, 0.25);
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.or-seperator {
+    width: 100%;
+    height: 1px;
+    background-color: #E1E1E1;
 }
 
 #page-container {
-    height: 100vh;
-    flex-wrap: wrap;
+    display: grid;
+    place-items: center;
 }
 
 #header-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
 }
 
 #page-header-text {
@@ -37,11 +50,59 @@ h1 {
     height: 50px;
 }
 
-#login-contianer {    
+#login-container {    
     width: 600px;
-    height: 600px;
+    height: 400px;
+
+    padding: 60px;
 
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
     border-radius: 50px;
+
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+    place-items: center;
+}
+
+#login-header-text {
+    font-weight: 700;
+    font-size: 37px;
+    color: #444444;
+    /* background-color: green; */
+    padding-bottom: 20px;
+}
+
+#github-button {
+    background: #444444;
+}
+
+#github-button-text {
+    color: white;
+}
+
+#google-button {
+    background: #FBFBFB;
+    border: 1px solid #CCCCCC;
+}
+
+#google-button-icon {
+    margin-left: 6px;
+    margin-top: 5px;
+}
+
+#github-button-icon {
+    height: 30px;
+    width: 30px;
+
+    margin-left: 10px;
+}
+
+#or-container {    
+    width: 100%;
+	display: grid;
+	grid-template-columns: 40% 20% 40%;
+    place-items: center;
+    color: #E1E1E1;
+    /* background-color: pink; */
 }
