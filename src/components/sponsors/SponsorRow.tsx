@@ -1,11 +1,7 @@
 import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
 import { ReactComponent as DefaultLogo } from '../../assets/logo.svg';
-import { getTierString, Sponsor, SubscriptionTier } from '../../models/sponsor';
-import './styles.css';
-
-const getAmount = (tier: SubscriptionTier) => {
-	return 0;
-};
+import { getTierString, getAmount, Sponsor } from '../../models/sponsor';
+import './sponsors.css';
 
 export default function SponsorRow({
 	sponsor,
@@ -16,8 +12,12 @@ export default function SponsorRow({
 }) {
 	return (
 		<>
-			<td>{sponsor.logo ?? <DefaultLogo />}</td>
-			<td>{sponsor.name}</td>
+			<td className="">{sponsor.name}</td>
+			<td>
+				<div className="flex w-full justify-center align-center">
+					{sponsor.logo ?? <DefaultLogo />}
+				</div>
+			</td>
 			<td>{sponsor.since.toLocaleDateString()}</td>
 			<td>{getTierString(sponsor.tier)}</td>
 			<td>{`$${getAmount(sponsor.tier)}`}</td>

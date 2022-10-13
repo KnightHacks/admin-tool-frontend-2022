@@ -9,7 +9,7 @@ import InputGroup from '../InputGroup';
 /***
  * @return form to edit attendee details.
  */
-export default function EditAttende(props: { selectedAttendee: Attendee }) {
+export default function EditAttendee(props: { selectedAttendee: Attendee }) {
 	const [attendee, setAttendee] = useState<Attendee>(props.selectedAttendee);
 	return (
 		<>

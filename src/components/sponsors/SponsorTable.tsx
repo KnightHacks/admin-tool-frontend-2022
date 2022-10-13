@@ -4,6 +4,7 @@ import { Sponsor, SubscriptionTier } from '../../models/sponsor';
 import SponsorRow from './SponsorRow';
 import SponsorTableHeader from './SponsorTableHeader';
 import Table from '../Table';
+import EditSponsor from './EditSponsor';
 
 export default function SponsorTable() {
 	const sponsorData: Array<Sponsor> = [];
@@ -37,15 +38,13 @@ export default function SponsorTable() {
 		<>
 			<PopUp
 				open={popUpOpen}
-				setOpen={(isOpen) => {
-					setPopUpOpen(isOpen);
-				}}
+				setOpen={(isOpen) => setPopUpOpen(isOpen)}
 				headerContent={
-					<div className=" text-popup-heading text-bold text-xl">
+					<div className="text-popup-heading text-bold text-xl">
 						{selectedSponsor?.name}
 					</div>
 				}
-				bodyContent={<p>TODO</p>}
+				bodyContent={<EditSponsor selectedSponsor={selectedSponsor} />}
 			></PopUp>
 
 			{/* Table Component */}
@@ -53,9 +52,9 @@ export default function SponsorTable() {
 				headerContent={
 					<SponsorTableHeader
 						namesAscending={namesAscending}
-						setNamesAscending={(namesAscending) => {
-							setNamesAscending(namesAscending);
-						}}
+						setNamesAscending={(namesAscending) =>
+							setNamesAscending(namesAscending)
+						}
 					/>
 				}
 				bodyContent={
@@ -66,9 +65,10 @@ export default function SponsorTable() {
 									<SponsorRow
 										key={sponsor.id}
 										sponsor={sponsor}
-										setOpen={(isOpen) =>
-											setPopUpOpen(isOpen)
-										}
+										setOpen={(isOpen) => {
+											setSelectedSponsor(sponsor);
+											setPopUpOpen(isOpen);
+										}}
 									/>
 								</tr>
 							);
