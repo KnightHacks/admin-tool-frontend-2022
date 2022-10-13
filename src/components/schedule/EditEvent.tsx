@@ -1,8 +1,8 @@
-import { Event as HackathonEvent } from '../../models/Event'
-
+import InputGroup from '../InputGroup';
+import { Event as HackathonEvent } from '../../models/event';
 export default function EditEvent(props: {
-	event: HackathonEvent
-	updateEvent: (event: Event) => void
+	event: HackathonEvent;
+	updateEvent: (event: Event) => void;
 }) {
-	return <></>
+	return <></>;
 }

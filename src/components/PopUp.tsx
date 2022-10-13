@@ -1,6 +1,6 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useRef } from 'react'
-import { ReactComponent as CloseIcon } from '../assets/Attendees/close.svg'
+import { useRef, Fragment } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import { ReactComponent as CloseIcon } from '../assets/Attendees/close.svg';
 
 /**
  * @param open determines whether the popup should be shown or not.
@@ -9,12 +9,12 @@ import { ReactComponent as CloseIcon } from '../assets/Attendees/close.svg'
  * @param bodyContent any content that needs to be stored in the body of the popup (below the gray line).
  */
 export default function PopUp(props: {
-	open: boolean
-	setOpen: (isOpen: boolean) => void
-	headerContent?: React.ReactElement
-	bodyContent: React.ReactElement
+	open: boolean;
+	setOpen: (isOpen: boolean) => void;
+	headerContent?: React.ReactElement;
+	bodyContent: React.ReactElement;
 }) {
-	const cancelButtonRef = useRef(null)
+	const cancelButtonRef = useRef(null);
 	return (
 		<Transition.Root show={props.open} as={Fragment}>
 			<Dialog
@@ -52,7 +52,7 @@ export default function PopUp(props: {
 										<button
 											className="h-8 w-8 bg-gray-200 rounded-full flex items-center justify-center text-attendee-name"
 											onClick={() => {
-												props.setOpen(false)
+												props.setOpen(false);
 											}}
 										>
 											<CloseIcon />
@@ -67,5 +67,5 @@ export default function PopUp(props: {
 				</div>
 			</Dialog>
 		</Transition.Root>
-	)
+	);
 }

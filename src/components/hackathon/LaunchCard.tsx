@@ -1,7 +1,7 @@
 interface LaunchCardProps {
-	icon: JSX.Element
-	text: string
-	onClick: () => void
+	icon: JSX.Element;
+	text: string;
+	onClick: () => void;
 }
 
 export default function LaunchCard({ icon, text, onClick }: LaunchCardProps) {
@@ -19,5 +19,5 @@ export default function LaunchCard({ icon, text, onClick }: LaunchCardProps) {
 				</p>
 			</button>
 		</div>
-	)
+	);
 }

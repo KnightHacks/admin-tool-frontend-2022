@@ -1,5 +1,6 @@
-import AttendeeTable from '../components/attendees/AttendeeTable'
-import HackathonInfoBar from '../components/hackathon/HackathonInfoBar'
+import React, { useState } from 'react';
+import AttendeeTable from '../components/attendees/AttendeeTable';
+import HackathonInfoBar from '../components/hackathon/HackathonInfoBar';
 
 export default function Attendees() {
 	return (
@@ -9,5 +10,5 @@ export default function Attendees() {
 				<AttendeeTable />
 			</div>
 		</>
-	)
+	);
 }

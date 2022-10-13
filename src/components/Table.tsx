@@ -1,4 +1,4 @@
-import './Styles.css'
+import './styles.css';
 
 /**
  * Creates the table component with all default styling.
@@ -7,8 +7,8 @@ import './Styles.css'
  */
 
 export default function Table(props: {
-	headerContent?: React.ReactElement
-	bodyContent?: React.ReactElement
+	headerContent?: React.ReactElement;
+	bodyContent?: React.ReactElement;
 }) {
 	return (
 		<>
@@ -21,5 +21,5 @@ export default function Table(props: {
 				</table>
 			</div>
 		</>
-	)
+	);
 }

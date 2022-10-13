@@ -1,5 +1,4 @@
-import { ReactComponent as AddIcon } from '../../assets/Schedule/add.svg'
-
+import { ReactComponent as AddIcon } from '../../assets/Schedule/add.svg';
 export default function DayHeader(props: { dayNum: number }) {
 	return (
 		<div className="px-5">
@@ -20,5 +19,5 @@ export default function DayHeader(props: { dayNum: number }) {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }

@@ -1,5 +1,5 @@
-import { ReactComponent as CheckedIcon } from '../../assets/Attendees/checked.svg'
-import { ReactComponent as UncheckedIcon } from '../../assets/Attendees/unchecked.svg'
+import { ReactComponent as CheckedIcon } from '../../assets/Attendees/checked.svg';
+import { ReactComponent as UncheckedIcon } from '../../assets/Attendees/unchecked.svg';
 
 export default function AttendeeCheckBox(props: { isChecked: boolean }) {
 	return (
@@ -8,5 +8,5 @@ export default function AttendeeCheckBox(props: { isChecked: boolean }) {
 				{props.isChecked ? <CheckedIcon /> : <UncheckedIcon />}
 			</div>
 		</>
-	)
+	);
 }
