@@ -3,6 +3,7 @@ import InputGroup from '../InputGroup';
 import { Sponsor, SubscriptionTier } from '../../models/sponsor';
 import { DesktopDatePicker } from '@mui/x-date-pickers';
 import TextField from '@mui/material/TextField';
+import { FormControl, MenuItem, Select, InputLabel } from '@mui/material';
 
 /*
 
@@ -99,6 +100,28 @@ export default function EditSponsor({
 					/>
 
 					{/*TODO: Tier Dropdown */}
+					<FormControl sx={{ m: 1, minWidth: 80 }}>
+						<InputLabel id="demo-simple-select-autowidth-label">
+							Age
+						</InputLabel>
+						<Select
+							labelId="demo-simple-select-autowidth-label"
+							id="demo-simple-select-autowidth"
+							value={age}
+							onChange={handleChange}
+							autoWidth
+							label="Age"
+						>
+							<MenuItem value="">
+								<em>None</em>
+							</MenuItem>
+							<MenuItem value={10}>Twenty</MenuItem>
+							<MenuItem value={21}>Twenty one</MenuItem>
+							<MenuItem value={22}>
+								Twenty one and a half
+							</MenuItem>
+						</Select>
+					</FormControl>
 
 					<InputGroup
 						value={sponsor?.website ?? ''}
