@@ -1,32 +1,30 @@
-import { ReactComponent as FilterIcon } from '../../assets/Attendees/filter.svg';
-import { ReactComponent as SortIcon } from '../../assets/Attendees/sort.svg';
+import { ReactComponent as SortIcon } from '../../assets/Sponsors/sort.svg';
+import './sponsors.css';
 
-/**
- *
- * @param namesAscending determines whether or not {@link AttendeeTable} should sort attendee name's alphabetically.
- * @param setNamesAscending sets namesAscending in {@link AttendeeTable}
- */
-export default function SponsorTableHeader(props: {
+export default function SponsorTableHeader({
+	namesAscending,
+	setNamesAscending,
+}: {
 	namesAscending: boolean;
 	setNamesAscending: (namesAscending: boolean) => void;
 }) {
 	return (
 		<>
-			<th> Logo </th>
 			<th>
-				<div id="nameContent">
+				<div id="sponsorNameContent">
 					Name
-					{!props.namesAscending ? (
-						<button onClick={() => props.setNamesAscending(false)}>
-							<SortIcon id="ascendingSort" />
+					{namesAscending ? (
+						<button onClick={() => setNamesAscending(false)}>
+							<SortIcon id="ascendingSortArrow" />
 						</button>
 					) : (
-						<button onClick={() => props.setNamesAscending(true)}>
-							<SortIcon id="descendingSort" />
+						<button onClick={() => setNamesAscending(true)}>
+							<SortIcon id="descendingSortArrow" />
 						</button>
 					)}
 				</div>
 			</th>
+			<th>Logo</th>
 			<th>Since</th>
 			<th>Level</th>
 			<th>Amount</th>

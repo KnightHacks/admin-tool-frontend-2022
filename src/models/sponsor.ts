@@ -27,6 +27,10 @@ export function getTierString(tier: SubscriptionTier) {
 	else return '';
 }
 
+export function getAmount(tier: SubscriptionTier) {
+	return 0; // TODO
+}
+
 export function getTierFromString(tier: string) {
 	tier = tier.toLowerCase();
 	if (tier === 'bronze') return SubscriptionTier.BRONZE;
