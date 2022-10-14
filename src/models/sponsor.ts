@@ -1,4 +1,4 @@
-import { Hackathon } from './Hackathon'
+import { Hackathon } from './hackathon'
 
 export interface Sponsor {
 	name: string

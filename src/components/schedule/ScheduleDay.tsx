@@ -1,4 +1,4 @@
-import { Event as HackathonEvent } from '../../models/Event'
+import { Event as HackathonEvent } from '../../models/event'
 import Table from '../Table'
 import DayHeader from './DayHeader'
 import ScheduleRow from './ScheduleRow'

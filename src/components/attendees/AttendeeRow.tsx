@@ -1,9 +1,9 @@
-import { ReactComponent as GoogleIcon } from '../../assets/Attendees/email.svg'
-import { ReactComponent as EmailIcon } from '../../assets/Attendees/google.svg'
-import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg'
-import { Attendee } from '../../models/Attendee'
+import { ReactComponent as GoogleIcon } from '../../assets/attendees/email.svg'
+import { ReactComponent as EmailIcon } from '../../assets/attendees/google.svg'
+import { ReactComponent as OpenIcon } from '../../assets/attendees/open.svg'
+import { Attendee } from '../../models/attendee'
 import AttendeeCheckBox from './AttendeeCheckBox'
-import './Styles.css'
+import './styles.css'
 
 /**
  * @returns row for an attendee in the attendee table.

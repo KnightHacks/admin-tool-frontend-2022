@@ -1,7 +1,7 @@
 import HackathonInfoBar from '../components/hackathon/HackathonInfoBar'
 import ScheduleDay from '../components/schedule/ScheduleDay'
-import { Event } from '../models/Event'
-import { dummyHackathonData } from '../models/Hackathon'
+import { Event } from '../models/event'
+import { dummyHackathonData } from '../models/hackathon'
 
 export default function Schedule() {
 	const sampleEvent: Event = {

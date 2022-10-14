@@ -1,4 +1,4 @@
-import { Event as HackathonEvent } from '../../models/Event'
+import { Event as HackathonEvent } from '../../models/event'
 
 export default function EditEvent(props: {
 	event: HackathonEvent

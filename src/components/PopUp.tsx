@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useRef } from 'react'
-import { ReactComponent as CloseIcon } from '../assets/Attendees/close.svg'
+import { ReactComponent as CloseIcon } from '../assets/attendees/close.svg'
 
 /**
  * @param open determines whether the popup should be shown or not.

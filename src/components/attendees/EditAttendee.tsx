@@ -1,9 +1,9 @@
-import { ReactComponent as AdmitIcon } from '../../assets/Attendees/admit.svg'
-import { ReactComponent as CheckInIcon } from '../../assets/Attendees/checkin.svg'
-import { ReactComponent as DeleteIcon } from '../../assets/Attendees/delete.svg'
+import { ReactComponent as AdmitIcon } from '../../assets/attendees/admit.svg'
+import { ReactComponent as CheckInIcon } from '../../assets/attendees/checkin.svg'
+import { ReactComponent as DeleteIcon } from '../../assets/attendees/delete.svg'
 
 import { useState } from 'react'
-import { Attendee } from '../../models/Attendee'
+import { Attendee } from '../../models/attendee'
 import InputGroup from '../InputGroup'
 
 /***

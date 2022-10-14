@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Attendee } from '../../models/Attendee'
+import { Attendee } from '../../models/attendee'
 import PopUp from '../PopUp'
 import Table from '../Table'
 import AttendeeRow from './AttendeeRow'

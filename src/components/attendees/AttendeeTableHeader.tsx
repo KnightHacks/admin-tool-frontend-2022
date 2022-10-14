@@ -1,5 +1,5 @@
-import { ReactComponent as FilterIcon } from '../../assets/Attendees/filter.svg'
-import { ReactComponent as SortIcon } from '../../assets/Attendees/sort.svg'
+import { ReactComponent as FilterIcon } from '../../assets/attendees/filter.svg'
+import { ReactComponent as SortIcon } from '../../assets/attendees/sort.svg'
 
 /**
  *

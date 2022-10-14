@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg'
 import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg'
 import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg'
-import '../components/home/Home.css'
+import '../components/home/home.css'
 
 export default function Home() {
 	// TODO: This user name should be generic.
