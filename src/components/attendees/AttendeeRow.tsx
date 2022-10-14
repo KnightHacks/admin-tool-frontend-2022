@@ -51,14 +51,7 @@ export default function AttendeeRow(props: {
 				/>
 			</td>
 			<td>
-				<button
-					id="openUser"
-					onClick={() => {
-						{
-							props.setOpen(true)
-						}
-					}}
-				>
+				<button id="openUser" onClick={() => props.setOpen(true)}>
 					<div id="openUserContent">
 						<OpenIcon />
 						Open User
