@@ -1,9 +1,9 @@
-import { Attendee } from '../../models/attendee';
-import AttendeeCheckBox from './AttendeeCheckBox';
-import { ReactComponent as EmailIcon } from '../../assets/Attendees/google.svg';
-import { ReactComponent as GoogleIcon } from '../../assets/Attendees/email.svg';
-import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
-import './styles.css';
+import { ReactComponent as GoogleIcon } from '../../assets/attendees/email.svg'
+import { ReactComponent as EmailIcon } from '../../assets/attendees/google.svg'
+import { ReactComponent as OpenIcon } from '../../assets/attendees/open.svg'
+import { Attendee } from '../../models/attendee'
+import AttendeeCheckBox from './AttendeeCheckBox'
+import './styles.css'
 
 /**
  * @returns row for an attendee in the attendee table.
@@ -11,12 +11,12 @@ import './styles.css';
 
 export default function AttendeeRow(props: {
 	popUp: {
-		seenAttendeePopUp: boolean;
-		selectedAttendee: Attendee;
-		open: boolean;
-	};
-	attendee: Attendee;
-	setOpen: (isOpen: boolean) => void;
+		seenAttendeePopUp: boolean
+		selectedAttendee: Attendee
+		open: boolean
+	}
+	attendee: Attendee
+	setOpen: (isOpen: boolean) => void
 }) {
 	return (
 		<>
@@ -59,5 +59,5 @@ export default function AttendeeRow(props: {
 				</button>
 			</td>
 		</>
-	);
+	)
 }
