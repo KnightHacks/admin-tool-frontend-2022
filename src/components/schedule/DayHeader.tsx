@@ -1,4 +1,4 @@
-import { ReactComponent as AddIcon } from '../../assets/Schedule/add.svg'
+import { ReactComponent as AddIcon } from '../../assets/schedule/add.svg'
 
 export default function DayHeader(props: { dayNum: number }) {
 	return (

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { ReactComponent as DeleteIcon } from '../../assets/Schedule/delete.svg'
-import { ReactComponent as EditIcon } from '../../assets/Schedule/edit.svg'
-import { Event as HackathonEvent } from '../../models/Event'
+import { ReactComponent as DeleteIcon } from '../../assets/schedule/delete.svg'
+import { ReactComponent as EditIcon } from '../../assets/schedule/edit.svg'
+import { Event as HackathonEvent } from '../../models/event'
 import PopUp from '../PopUp'
 
 export default function ScheduleRow(props: { event: HackathonEvent }) {
