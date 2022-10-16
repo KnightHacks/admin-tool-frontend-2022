@@ -27,7 +27,7 @@ button {
 }
 
 #page-container {
-    display: grid;
+    display: grid; 
     place-items: center;
 }
 
@@ -50,13 +50,11 @@ button {
     height: 50px;
 }
 
-#login-container {    
+#login-container {
     width: 600px;
     height: 400px;
 
     padding: 60px;
-
-    background: #FFFFFF;
     border: 1px solid #CCCCCC;
     border-radius: 50px;
 
@@ -69,7 +67,6 @@ button {
     font-weight: 700;
     font-size: 37px;
     color: #444444;
-    /* background-color: green; */
     padding-bottom: 20px;
 }
 
@@ -104,5 +101,4 @@ button {
 	grid-template-columns: 40% 20% 40%;
     place-items: center;
     color: #E1E1E1;
-    /* background-color: pink; */
 }
