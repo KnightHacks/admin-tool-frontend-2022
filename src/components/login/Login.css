@@ -34,7 +34,7 @@ button {
 #header-container {
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
 
 #page-header-text {
