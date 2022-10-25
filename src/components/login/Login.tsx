@@ -1,8 +1,8 @@
 import React from "react"
-import '../components/login/Login.css'
-import { ReactComponent as KHLogo } from '../assets/logo.svg'
-import { ReactComponent as GoogleLogo } from '../assets/login/google.svg'
-import { ReactComponent as GitHubLogo } from '../assets/login/github.svg'
+import '../../components/login/Login.css'
+import { ReactComponent as KHLogo } from '../../assets/logo.svg'
+import { ReactComponent as GoogleLogo } from '../../assets/login/google.svg'
+import { ReactComponent as GitHubLogo } from '../../assets/login/github.svg'
 
 export default function Login() {
     return (
