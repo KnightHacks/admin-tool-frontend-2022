@@ -2,6 +2,7 @@ import '../components/home/home.css';
 import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg';
 import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg';
 import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg';
+import HomeTable from '../components/home/HomeTable';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -63,7 +64,8 @@ export default function Home() {
 				</Link>
 			</div>
 
-			{/* TODO: Add Table Component Here */}
+			{/* Table Component */}
+			<HomeTable />
 		</div>
 	);
 }
