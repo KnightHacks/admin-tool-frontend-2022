@@ -1,10 +1,11 @@
-import { Event as HackathonEvent } from '../../models/event';
-import Table from '../Table';
-import ScheduleRow from './ScheduleRow';
-import DayHeader from './DayHeader';
+import { Event as HackathonEvent } from '../../models/event'
+import Table from '../Table'
+import DayHeader from './DayHeader'
+import ScheduleRow from './ScheduleRow'
+
 export default function ScheduleDay(props: {
-	events: Array<HackathonEvent>;
-	dayNum: number;
+	events: Array<HackathonEvent>
+	dayNum: number
 }) {
 	return (
 		<div className="mt-8 text-schedule-header">
@@ -17,11 +18,11 @@ export default function ScheduleDay(props: {
 								<tr key={event.id} className="topBorder">
 									<ScheduleRow event={event} />
 								</tr>
-							);
+							)
 						})}
 					</>
 				}
 			/>
 		</div>
-	);
+	)
 }

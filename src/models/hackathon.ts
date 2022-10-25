@@ -1,5 +1,5 @@
-import { Sponsor } from './sponsor';
-import { User } from './user';
+import { Sponsor } from './sponsor'
+import { User } from './user'
 
 export interface Hackathon {
 	attendees: User[];
