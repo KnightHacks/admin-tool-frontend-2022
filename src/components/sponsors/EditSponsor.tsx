@@ -1,9 +1,17 @@
-import { useState } from 'react';
-import InputGroup from '../InputGroup';
-import { Sponsor, SubscriptionTier } from '../../models/sponsor';
-import { DesktopDatePicker } from '@mui/x-date-pickers';
-import TextField from '@mui/material/TextField';
-import { FormControl, MenuItem, Select, InputLabel } from '@mui/material';
+import { useState } from 'react'
+import InputGroup from '../InputGroup'
+import { allTiers, Sponsor } from '../../models/sponsor'
+import { DesktopDatePicker } from '@mui/x-date-pickers'
+import TextField from '@mui/material/TextField'
+import {
+	FormControl,
+	MenuItem,
+	Select,
+	InputLabel,
+	SelectChangeEvent,
+} from '@mui/material'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 
 /*
 
@@ -35,23 +43,33 @@ const emptySponsor: Sponsor = {
 	id: '',
 	logo: '',
 	since: new Date(),
-	tier: SubscriptionTier.INVALID,
+	tier: 'Gold',
 	website: '',
-};
+}
 
 export default function EditSponsor({
 	selectedSponsor,
 }: {
-	selectedSponsor: Sponsor | null;
+	selectedSponsor: Sponsor | null
 }) {
-	// TODO: might need to deep copy this
 	const [sponsor, setSponsor] = useState<Sponsor>(
 		selectedSponsor ?? emptySponsor
-	);
+	)
+	const [selectTier, setSelectTier] = useState<string>(sponsor.tier)
+
+	// TODOS
+	/* 
+        Make formatting of all fields look good
+            Either re-style fields or maybe just make my own and scrap all MUI additions?
+        Add in any extra fields that might be changed
+        Button just on the bottom all the time, not just at small breakpoints
+        Save sponsor
+        Whitespace in tr thing
+    */
 
 	const saveSponsor = () => {
 		// TODO
-	};
+	}
 
 	return (
 		<>
@@ -73,33 +91,21 @@ export default function EditSponsor({
 						}
 					/>
 
-					<InputGroup
-						value={sponsor?.description ?? ''}
-						label={'Description'}
-						setValue={(updatedValue) =>
-							setSponsor({
-								...sponsor,
-								description: updatedValue,
-							})
-						}
-					/>
+					<LocalizationProvider dateAdapter={AdapterDayjs}>
+						<DesktopDatePicker
+							label="Sponsor Join Date"
+							inputFormat="MM/DD/YYYY"
+							value={sponsor.since}
+							onChange={(newValue) =>
+								setSponsor({
+									...sponsor,
+									since: newValue ?? new Date(),
+								})
+							}
+							renderInput={(params) => <TextField {...params} />}
+						/>
+					</LocalizationProvider>
 
-					{/*TODO: Since date */}
-
-					<DesktopDatePicker
-						label="Sponsor Join Date"
-						inputFormat="MM/DD/YYYY"
-						value={sponsor.since}
-						onChange={(newValue) =>
-							setSponsor({
-								...sponsor,
-								since: newValue ?? new Date(),
-							})
-						}
-						renderInput={(params) => <TextField {...params} />}
-					/>
-
-					{/*TODO: Tier Dropdown */}
 					<FormControl sx={{ m: 1, minWidth: 80 }}>
 						<InputLabel id="demo-simple-select-autowidth-label">
 							Age
@@ -107,19 +113,20 @@ export default function EditSponsor({
 						<Select
 							labelId="demo-simple-select-autowidth-label"
 							id="demo-simple-select-autowidth"
-							value={age}
-							onChange={handleChange}
+							value={selectTier}
+							onChange={(event: SelectChangeEvent<string>) => {
+								const newTier = event.target.value
+								setSelectTier(newTier)
+								setSponsor({ ...sponsor, tier: newTier })
+							}}
 							autoWidth
-							label="Age"
+							label="Tier"
 						>
-							<MenuItem value="">
-								<em>None</em>
-							</MenuItem>
-							<MenuItem value={10}>Twenty</MenuItem>
-							<MenuItem value={21}>Twenty one</MenuItem>
-							<MenuItem value={22}>
-								Twenty one and a half
-							</MenuItem>
+							{allTiers.map((stringTier) => (
+								<MenuItem value={stringTier} key={stringTier}>
+									{stringTier}
+								</MenuItem>
+							))}
 						</Select>
 					</FormControl>
 
@@ -139,17 +146,11 @@ export default function EditSponsor({
 						'w-full h-full flex flex-col items-center justify-center p-2 rounded-lg shadow-sm bored-r-8 gap-6'
 					}
 				>
-					<button className="bg-dark-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-dark-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90">
-						Admit Participant
-					</button>
-					<button className="bg-dark-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-dark-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90">
-						Check-in Participant
-					</button>
 					<button className="bg-red-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90">
-						Delete Participant
+						Delete Sponsor
 					</button>
 				</div>
 			</div>
 		</>
-	);
+	)
 }

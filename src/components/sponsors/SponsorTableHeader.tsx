@@ -1,4 +1,4 @@
-import { ReactComponent as SortIcon } from '../../assets/Sponsors/sort.svg';
+import { ReactComponent as SortIcon } from '../../assets/sponsors/sort.svg';
 import './sponsors.css';
 
 export default function SponsorTableHeader({

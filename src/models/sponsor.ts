@@ -7,35 +7,16 @@ export interface Sponsor {
 	id: string
 	logo?: string
 	since: Date
-	tier: SubscriptionTier
+	tier: string
 	website?: string
 }
 
-export enum SubscriptionTier {
-	BRONZE,
-	SILVER,
-	GOLD,
-	PLATINUM,
-	INVALID,
+export const allTiers = ['Bronze', 'Silver', 'Gold', 'Platinum']
+
+export function isValidTier(val: string) {
+	return allTiers.indexOf(val) !== -1
 }
 
-export function getTierString(tier: SubscriptionTier) {
-	if (tier === SubscriptionTier.BRONZE) return 'Bronze';
-	else if (tier === SubscriptionTier.SILVER) return 'Silver';
-	else if (tier === SubscriptionTier.GOLD) return 'Gold';
-	else if (tier === SubscriptionTier.PLATINUM) return 'Platinum';
-	else return '';
-}
-
-export function getAmount(tier: SubscriptionTier) {
-	return 0; // TODO
-}
-
-export function getTierFromString(tier: string) {
-	tier = tier.toLowerCase();
-	if (tier === 'bronze') return SubscriptionTier.BRONZE;
-	if (tier === 'silver') return SubscriptionTier.SILVER;
-	if (tier === 'gold') return SubscriptionTier.GOLD;
-	if (tier === 'platinum') return SubscriptionTier.PLATINUM;
-	else return SubscriptionTier.INVALID;
+export function getAmount(tier: string) {
+	return 0 // TODO
 }

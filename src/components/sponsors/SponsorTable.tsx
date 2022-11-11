@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PopUp from '../PopUp';
-import { Sponsor, SubscriptionTier } from '../../models/sponsor';
+import { Sponsor } from '../../models/sponsor';
 import SponsorRow from './SponsorRow';
 import SponsorTableHeader from './SponsorTableHeader';
 import Table from '../Table';
@@ -22,7 +22,7 @@ export default function SponsorTable() {
 		id: 'dummyID',
 		logo: undefined,
 		since: new Date('2017-08-22T12:17:21.264Z'),
-		tier: SubscriptionTier.PLATINUM,
+		tier: "Bronze",
 		website: 'https://knighthacks.org',
 	};
 
