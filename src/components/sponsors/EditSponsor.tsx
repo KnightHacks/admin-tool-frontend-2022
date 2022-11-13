@@ -74,10 +74,10 @@ export default function EditSponsor({
 	return (
 		<>
 			<span className="h-[1.5px] m-0 p-0 w-full bg-gray-200"></span>
-			<div className="grid h-full  grid-cols-1 grid-rows-1 lg:grid-cols-2 lg:grid-rows-1 items-center justify-start">
+			<div className="grid h-full grid-cols-1 grid-rows-1 items-center justify-start">
 				<div className="flex items-center h-full p-4 justify-start flex-col gap-4">
 					<div className="text-[28px] font-bold text-popup-heading">
-						Attendee Details
+						Sponsor Details
 					</div>
 
 					<InputGroup
@@ -93,7 +93,7 @@ export default function EditSponsor({
 
 					<LocalizationProvider dateAdapter={AdapterDayjs}>
 						<DesktopDatePicker
-							label="Sponsor Join Date"
+							label="Join Date"
 							inputFormat="MM/DD/YYYY"
 							value={sponsor.since}
 							onChange={(newValue) =>
@@ -106,13 +106,10 @@ export default function EditSponsor({
 						/>
 					</LocalizationProvider>
 
-					<FormControl sx={{ m: 1, minWidth: 80 }}>
-						<InputLabel id="demo-simple-select-autowidth-label">
-							Age
-						</InputLabel>
+					<InputGroup>
 						<Select
-							labelId="demo-simple-select-autowidth-label"
-							id="demo-simple-select-autowidth"
+							labelId="sponsorTier"
+							id="sponsorTier"
 							value={selectTier}
 							onChange={(event: SelectChangeEvent<string>) => {
 								const newTier = event.target.value
@@ -128,7 +125,7 @@ export default function EditSponsor({
 								</MenuItem>
 							))}
 						</Select>
-					</FormControl>
+					</InputGroup>
 
 					<InputGroup
 						value={sponsor?.website ?? ''}
