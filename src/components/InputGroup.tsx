@@ -8,36 +8,44 @@ import { HTMLInputTypeAttribute, ReactNode } from 'react'
  * @param type type of input, by default this is text
  */
 
-type TextFieldRequiredProps = {
-	value: any
-	setValue: (updatedValue: any | undefined) => void
+type InputGroupProps = {
+	value?: any
+	setValue?: (updatedValue: any | undefined) => void
 	label: string
 	type?: HTMLInputTypeAttribute
+	numLines?: number
+	children?: ReactNode
 }
 
-type CustomField = {
-	label: string
-	children: ReactNode
-}
-
-export default function InputGroup(
-	props: TextFieldRequiredProps | CustomField
-) {
+export default function InputGroup(props: InputGroupProps) {
 	return (
 		<div className={'w-full flex flex-col items-center justify-start'}>
 			<div className="text-[22px] max-w-[350px] font-medium text-left w-3/4">
 				{props.label}
 			</div>
-			{props instanceof CustomField ? (
-				children
+			{props.children ? (
+				props.children
+			) : props.numLines ? (
+				<textarea
+					className="w-3/4 max-w-[350px] p-2 bg-popup-input-bg border-solid border-popup-input-border border-[1px] rounded-lg shadow-sm"
+					value={props.value}
+					onChange={(e) =>
+						props.setValue
+							? props.setValue(e.target.value)
+							: undefined
+					}
+					rows={props.numLines}
+				></textarea>
 			) : (
 				<input
-					className="w-3/4 max-w-[350px] p-2 bg-popup-input-bg border-solid border-popup-input-border border-[1px] rounded-lg shadow-sm bored-r-8 "
-					type={tfp.type ?? 'text'}
-					value={tfp.value}
-					onChange={(e) => {
-						tfp.setValue(e.target.value)
-					}}
+					className="w-3/4 max-w-[350px] p-2 bg-popup-input-bg border-solid border-popup-input-border border-[1px] rounded-lg shadow-sm"
+					type={props.type ?? 'text'}
+					value={props.value}
+					onChange={(e) =>
+						props.setValue
+							? props.setValue(e.target.value)
+							: undefined
+					}
 				/>
 			)}
 		</div>

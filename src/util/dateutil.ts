@@ -22,3 +22,9 @@ export function getDateRangeString(hackathonData: Hackathon): string {
 		startMonth !== endMonth ? allMonths[endMonth] + ' ' : ''
 	}${hackathonData.endDate.getDate()}`
 }
+
+export function dateToDateTimeLocalString(date: Date) {
+	const clone = new Date(date)
+	clone.setMinutes(clone.getMinutes() - clone.getTimezoneOffset())
+	return clone.toISOString().slice(0, 23)
+}

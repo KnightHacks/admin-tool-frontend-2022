@@ -1,40 +1,9 @@
 import { useState } from 'react'
 import InputGroup from '../InputGroup'
-import { allTiers, Sponsor } from '../../models/sponsor'
-import { DesktopDatePicker } from '@mui/x-date-pickers'
-import TextField from '@mui/material/TextField'
-import {
-	FormControl,
-	MenuItem,
-	Select,
-	InputLabel,
-	SelectChangeEvent,
-} from '@mui/material'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-
-/*
-
-Sponsor {
-	name: string;
-	description?: String;
-	hackathons: Hackathon[];
-	id: string;
-	logo?: string;
-	since: Date;
-	tier: SubscriptionTier;
-	website?: string;
-}
-
-export enum SubscriptionTier {
-	BRONZE,
-	SILVER,
-	GOLD,
-	PLATINUM,
-	INVALID,
-}
-
-*/
+import { Sponsor } from '../../models/sponsor'
+import Select, { StylesConfig } from 'react-select'
+import './sponsors.css'
+import { dateToDateTimeLocalString } from '../../util/dateutil'
 
 const emptySponsor: Sponsor = {
 	name: '',
@@ -47,6 +16,31 @@ const emptySponsor: Sponsor = {
 	website: '',
 }
 
+type Tier = { label: string; value: string }
+
+const tierOptions = [
+	{ value: 'BRONZE', label: 'Bronze' },
+	{ value: 'SILVER', label: 'Silver' },
+	{ value: 'GOLD', label: 'Gold' },
+	{ value: 'PLATINUM', label: 'Platinum' },
+]
+
+const customStyles: StylesConfig<Tier, false> = {
+	valueContainer: (provided, state) => ({
+		...provided,
+		backgroundColor: '#FBFBFB',
+	}),
+	indicatorsContainer: (provided, state) => ({
+		...provided,
+		backgroundColor: '#FBFBFB',
+	}),
+	container: (provided, state) => ({
+		...provided,
+		width: '75%',
+		maxWidth: '350px',
+	}),
+}
+
 export default function EditSponsor({
 	selectedSponsor,
 }: {
@@ -55,21 +49,21 @@ export default function EditSponsor({
 	const [sponsor, setSponsor] = useState<Sponsor>(
 		selectedSponsor ?? emptySponsor
 	)
-	const [selectTier, setSelectTier] = useState<string>(sponsor.tier)
-
-	// TODOS
-	/* 
-        Make formatting of all fields look good
-            Either re-style fields or maybe just make my own and scrap all MUI additions?
-        Add in any extra fields that might be changed
-        Button just on the bottom all the time, not just at small breakpoints
-        Save sponsor
-        Whitespace in tr thing
-    */
+	const [selectTier, setSelectTier] = useState<Tier>(
+		sponsor.tier
+			? { label: sponsor.tier, value: sponsor.tier }
+			: tierOptions[0]
+	)
 
 	const saveSponsor = () => {
 		// TODO
 	}
+
+	const deleteSponsor = () => {
+		// TODO
+	}
+
+	console.log(sponsor)
 
 	return (
 		<>
@@ -91,40 +85,40 @@ export default function EditSponsor({
 						}
 					/>
 
-					<LocalizationProvider dateAdapter={AdapterDayjs}>
-						<DesktopDatePicker
-							label="Join Date"
-							inputFormat="MM/DD/YYYY"
-							value={sponsor.since}
-							onChange={(newValue) =>
-								setSponsor({
-									...sponsor,
-									since: newValue ?? new Date(),
-								})
-							}
-							renderInput={(params) => <TextField {...params} />}
-						/>
-					</LocalizationProvider>
+					<InputGroup
+						value={sponsor?.description}
+						label={'Description'}
+						setValue={(updatedValue) =>
+							setSponsor({
+								...sponsor,
+								description: updatedValue,
+							})
+						}
+						numLines={3}
+					/>
 
-					<InputGroup>
+					{/* TODO: Date isn't coming out right when converting */}
+					<InputGroup
+						label="Start Date"
+						type={'datetime-local'}
+						value={dateToDateTimeLocalString(sponsor.since)}
+						setValue={(newVal) => {
+							console.log(newVal)
+							setSponsor({ ...sponsor, since: new Date(newVal) })
+						}}
+					/>
+
+					<InputGroup label="Tier">
 						<Select
-							labelId="sponsorTier"
-							id="sponsorTier"
+							styles={customStyles}
+							options={tierOptions}
 							value={selectTier}
-							onChange={(event: SelectChangeEvent<string>) => {
-								const newTier = event.target.value
-								setSelectTier(newTier)
-								setSponsor({ ...sponsor, tier: newTier })
+							onChange={(newValue) => {
+								if (!newValue) return
+								setSponsor({ ...sponsor, tier: newValue.value })
+								setSelectTier(newValue)
 							}}
-							autoWidth
-							label="Tier"
-						>
-							{allTiers.map((stringTier) => (
-								<MenuItem value={stringTier} key={stringTier}>
-									{stringTier}
-								</MenuItem>
-							))}
-						</Select>
+						/>
 					</InputGroup>
 
 					<InputGroup
@@ -143,8 +137,17 @@ export default function EditSponsor({
 						'w-full h-full flex flex-col items-center justify-center p-2 rounded-lg shadow-sm bored-r-8 gap-6'
 					}
 				>
-					<button className="bg-red-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90">
+					<button
+						onClick={deleteSponsor}
+						className="bg-red-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
+					>
 						Delete Sponsor
+					</button>
+					<button
+						onClick={saveSponsor}
+						className="bg-dark-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-dark-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
+					>
+						Save Sponsor
 					</button>
 				</div>
 			</div>
