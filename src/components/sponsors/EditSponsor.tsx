@@ -65,10 +65,15 @@ export default function EditSponsor({
 
 	console.log(sponsor)
 
-	return (
+    // TODO: Make a flex with three rows, two if small
+    // First row is the heading, second row is for fields, 
+    // third is for buttons. If small, everything in one line in row 2.
+    // Fields are half on the left and half on the right.
+	
+    return (
 		<>
 			<span className="h-[1.5px] m-0 p-0 w-full bg-gray-200"></span>
-			<div className="grid h-full grid-cols-1 grid-rows-1 items-center justify-start">
+			<div className="grid h-full  grid-cols-1 grid-rows-1 lg:grid-cols-2 lg:grid-rows-1 items-center justify-start">
 				<div className="flex items-center h-full p-4 justify-start flex-col gap-4">
 					<div className="text-[28px] font-bold text-popup-heading">
 						Sponsor Details
@@ -138,16 +143,16 @@ export default function EditSponsor({
 					}
 				>
 					<button
-						onClick={deleteSponsor}
-						className="bg-red-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
-					>
-						Delete Sponsor
-					</button>
-					<button
 						onClick={saveSponsor}
 						className="bg-dark-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-dark-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
 					>
 						Save Sponsor
+					</button>
+					<button
+						onClick={deleteSponsor}
+						className="bg-red-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
+					>
+						Delete Sponsor
 					</button>
 				</div>
 			</div>
