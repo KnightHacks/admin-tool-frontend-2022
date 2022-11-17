@@ -65,77 +65,88 @@ export default function EditSponsor({
 
 	console.log(sponsor)
 
-    // TODO: Make a flex with three rows, two if small
-    // First row is the heading, second row is for fields, 
-    // third is for buttons. If small, everything in one line in row 2.
-    // Fields are half on the left and half on the right.
-	
-    return (
+	// TODO: Make a flex with three rows, two if small
+	// First row is the heading, second row is for fields,
+	// third is for buttons. If small, everything in one line in row 2.
+	// Fields are half on the left and half on the right.
+
+	return (
 		<>
 			<span className="h-[1.5px] m-0 p-0 w-full bg-gray-200"></span>
-			<div className="grid h-full  grid-cols-1 grid-rows-1 lg:grid-cols-2 lg:grid-rows-1 items-center justify-start">
+			<div className="grid h-full grid-cols-1 grid-rows-1 lg:grid-rows-3 items-center justify-start">
 				<div className="flex items-center h-full p-4 justify-start flex-col gap-4">
 					<div className="text-[28px] font-bold text-popup-heading">
 						Sponsor Details
 					</div>
+				</div>
+				<div className="flex items-center p-4 justify-center flex-col lg:flex-row">
+					<div>
+						<InputGroup
+							value={sponsor?.name}
+							label={'Name'}
+							setValue={(updatedValue) =>
+								setSponsor({
+									...sponsor,
+									name: updatedValue,
+								})
+							}
+						/>
 
-					<InputGroup
-						value={sponsor?.name}
-						label={'Name'}
-						setValue={(updatedValue) =>
-							setSponsor({
-								...sponsor,
-								name: updatedValue,
-							})
-						}
-					/>
+						<InputGroup
+							value={sponsor?.description}
+							label={'Description'}
+							setValue={(updatedValue) =>
+								setSponsor({
+									...sponsor,
+									description: updatedValue,
+								})
+							}
+							numLines={3}
+						/>
+					</div>
 
-					<InputGroup
-						value={sponsor?.description}
-						label={'Description'}
-						setValue={(updatedValue) =>
-							setSponsor({
-								...sponsor,
-								description: updatedValue,
-							})
-						}
-						numLines={3}
-					/>
-
-					{/* TODO: Date isn't coming out right when converting */}
-					<InputGroup
-						label="Start Date"
-						type={'datetime-local'}
-						value={dateToDateTimeLocalString(sponsor.since)}
-						setValue={(newVal) => {
-							console.log(newVal)
-							setSponsor({ ...sponsor, since: new Date(newVal) })
-						}}
-					/>
-
-					<InputGroup label="Tier">
-						<Select
-							styles={customStyles}
-							options={tierOptions}
-							value={selectTier}
-							onChange={(newValue) => {
-								if (!newValue) return
-								setSponsor({ ...sponsor, tier: newValue.value })
-								setSelectTier(newValue)
+					<div>
+						{/* TODO: Date isn't coming out right when converting */}
+						<InputGroup
+							label="Start Date"
+							type={'datetime-local'}
+							value={dateToDateTimeLocalString(sponsor.since)}
+							setValue={(newVal) => {
+								console.log(newVal)
+								setSponsor({
+									...sponsor,
+									since: new Date(newVal),
+								})
 							}}
 						/>
-					</InputGroup>
 
-					<InputGroup
-						value={sponsor?.website ?? ''}
-						label={'Website'}
-						setValue={(updatedValue) =>
-							setSponsor({
-								...sponsor,
-								website: updatedValue,
-							})
-						}
-					/>
+						<InputGroup label="Tier">
+							<Select
+								styles={customStyles}
+								options={tierOptions}
+								value={selectTier}
+								onChange={(newValue) => {
+									if (!newValue) return
+									setSponsor({
+										...sponsor,
+										tier: newValue.value,
+									})
+									setSelectTier(newValue)
+								}}
+							/>
+						</InputGroup>
+
+						<InputGroup
+							value={sponsor?.website ?? ''}
+							label={'Website'}
+							setValue={(updatedValue) =>
+								setSponsor({
+									...sponsor,
+									website: updatedValue,
+								})
+							}
+						/>
+					</div>
 				</div>
 				<div
 					className={
