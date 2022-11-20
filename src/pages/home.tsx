@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg'
-import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg'
 import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg'
+import CreateHackathonButton from '../components/hackathon/CreateHackathonButton'
 import '../components/home/home.css'
 
 export default function Home() {
@@ -41,11 +41,13 @@ export default function Home() {
 				<h1 id="page-links-header">Fall 2022</h1>
 
 				<div id="page-links-grid">
-					{pageLinks.map(({route, buttonText}) => (
+					{pageLinks.map(({ route, buttonText }) => (
 						<Link key={route} to={route}>
 							<button className="page-links-grid-button">
 								<PageLinksIcon className="page-links-grid-button-icon" />
-								<p className="page-links-grid-button-text">{buttonText}</p>
+								<p className="page-links-grid-button-text">
+									{buttonText}
+								</p>
 							</button>
 						</Link>
 					))}
@@ -54,13 +56,7 @@ export default function Home() {
 
 			<div id="page-subheader-2">
 				<h1 className="page-subheader-text">Recent Hackathons</h1>
-
-				<Link to="/">
-					<button id="page-subheader-2-button">
-						<CreateHackathonIcon />
-						<p>Create Hackathon</p>
-					</button>
-				</Link>
+				<CreateHackathonButton />
 			</div>
 
 			{/* TODO: Add Table Component Here */}
