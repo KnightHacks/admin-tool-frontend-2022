@@ -11,6 +11,13 @@ export interface Sponsor {
 	website?: string
 }
 
+export enum HackathonTier {
+	BRONZE = 'Bronze',
+	SILVER = 'Silver',
+	GOLD = 'Gold',
+	PLATINUM = 'Platinum',
+}
+
 export const allTiers = ['Bronze', 'Silver', 'Gold', 'Platinum']
 
 export function isValidTier(val: string) {

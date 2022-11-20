@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import InputGroup from '../InputGroup'
-import { Sponsor } from '../../models/sponsor'
-import Select, { StylesConfig } from 'react-select'
+import { Sponsor, HackathonTier } from '../../models/sponsor'
 import './sponsors.css'
 import { dateToDateTimeLocalString } from '../../util/dateutil'
+import { Option, SelectGroup } from '../SelectGroup'
 
 const emptySponsor: Sponsor = {
 	name: '',
@@ -12,34 +12,16 @@ const emptySponsor: Sponsor = {
 	id: '',
 	logo: '',
 	since: new Date(),
-	tier: 'Gold',
+	tier: HackathonTier.GOLD,
 	website: '',
 }
 
-type Tier = { label: string; value: string }
-
-const tierOptions = [
-	{ value: 'BRONZE', label: 'Bronze' },
-	{ value: 'SILVER', label: 'Silver' },
-	{ value: 'GOLD', label: 'Gold' },
-	{ value: 'PLATINUM', label: 'Platinum' },
+const tierOptions: Option<HackathonTier>[] = [
+	{ value: HackathonTier.BRONZE, label: 'Bronze' },
+	{ value: HackathonTier.SILVER, label: 'Silver' },
+	{ value: HackathonTier.GOLD, label: 'Gold' },
+	{ value: HackathonTier.PLATINUM, label: 'Platinum' },
 ]
-
-const customStyles: StylesConfig<Tier, false> = {
-	valueContainer: (provided, state) => ({
-		...provided,
-		backgroundColor: '#FBFBFB',
-	}),
-	indicatorsContainer: (provided, state) => ({
-		...provided,
-		backgroundColor: '#FBFBFB',
-	}),
-	container: (provided, state) => ({
-		...provided,
-		width: '75%',
-		maxWidth: '350px',
-	}),
-}
 
 export default function EditSponsor({
 	selectedSponsor,
@@ -48,11 +30,6 @@ export default function EditSponsor({
 }) {
 	const [sponsor, setSponsor] = useState<Sponsor>(
 		selectedSponsor ?? emptySponsor
-	)
-	const [selectTier, setSelectTier] = useState<Tier>(
-		sponsor.tier
-			? { label: sponsor.tier, value: sponsor.tier }
-			: tierOptions[0]
 	)
 
 	const saveSponsor = () => {
@@ -63,24 +40,15 @@ export default function EditSponsor({
 		// TODO
 	}
 
-	console.log(sponsor)
-
-	// TODO: Make a flex with three rows, two if small
-	// First row is the heading, second row is for fields,
-	// third is for buttons. If small, everything in one line in row 2.
-	// Fields are half on the left and half on the right.
-
 	return (
 		<>
 			<span className="h-[1.5px] m-0 p-0 w-full bg-gray-200"></span>
-			<div className="grid h-full grid-cols-1 grid-rows-1 lg:grid-rows-3 items-center justify-start">
-				<div className="flex items-center h-full p-4 justify-start flex-col gap-4">
-					<div className="text-[28px] font-bold text-popup-heading">
-						Sponsor Details
-					</div>
+			<div className="flex justify-center items-center flex-col">
+				<div className="text-[28px] font-bold text-popup-heading">
+					Sponsor Details
 				</div>
-				<div className="flex items-center p-4 justify-center flex-col lg:flex-row">
-					<div>
+				<div className="flex items-center p-4 justify-center flex-col lg:flex-row w-10/12">
+					<div className="flex flex-col gap-2 w-full lg:w-1/2">
 						<InputGroup
 							value={sponsor?.name}
 							label={'Name'}
@@ -105,36 +73,31 @@ export default function EditSponsor({
 						/>
 					</div>
 
-					<div>
-						{/* TODO: Date isn't coming out right when converting */}
+					<div className="flex flex-col gap-2 w-full lg:w-1/2">
 						<InputGroup
 							label="Start Date"
-							type={'datetime-local'}
-							value={dateToDateTimeLocalString(sponsor.since)}
-							setValue={(newVal) => {
-								console.log(newVal)
+							type="date"
+							value={sponsor.since.toISOString().split('T')[0]}
+							setValue={(newDateStr) =>
 								setSponsor({
 									...sponsor,
-									since: new Date(newVal),
+									since: new Date(newDateStr),
 								})
-							}}
+							}
 						/>
 
-						<InputGroup label="Tier">
-							<Select
-								styles={customStyles}
-								options={tierOptions}
-								value={selectTier}
-								onChange={(newValue) => {
-									if (!newValue) return
-									setSponsor({
-										...sponsor,
-										tier: newValue.value,
-									})
-									setSelectTier(newValue)
-								}}
-							/>
-						</InputGroup>
+						<SelectGroup
+							value={sponsor.tier}
+							setValue={(newValue) => {
+								if (!newValue) return
+								setSponsor({
+									...sponsor,
+									tier: newValue,
+								})
+							}}
+							label="Tier"
+							options={tierOptions}
+						/>
 
 						<InputGroup
 							value={sponsor?.website ?? ''}
@@ -155,13 +118,13 @@ export default function EditSponsor({
 				>
 					<button
 						onClick={saveSponsor}
-						className="bg-dark-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-dark-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
+						className="bg-dark-action-color p-2 text-white w-1/2 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-dark-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
 					>
 						Save Sponsor
 					</button>
 					<button
 						onClick={deleteSponsor}
-						className="bg-red-action-color p-2 text-white w-3/4 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
+						className="bg-red-action-color p-2 text-white w-1/2 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
 					>
 						Delete Sponsor
 					</button>

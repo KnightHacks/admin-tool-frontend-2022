@@ -6,15 +6,15 @@ import { HTMLInputTypeAttribute, ReactNode } from 'react'
  * @param setValue function that takes the updated inputValue and sets it.
  * @param label label for the input.
  * @param type type of input, by default this is text
+ * @param numLines optional number of lines if this is a text area
  */
 
 type InputGroupProps = {
-	value?: any
-	setValue?: (updatedValue: any | undefined) => void
+	value: any
+	setValue: (updatedValue: any | undefined) => void
 	label: string
 	type?: HTMLInputTypeAttribute
 	numLines?: number
-	children?: ReactNode
 }
 
 export default function InputGroup(props: InputGroupProps) {
@@ -23,9 +23,7 @@ export default function InputGroup(props: InputGroupProps) {
 			<div className="text-[22px] max-w-[350px] font-medium text-left w-3/4">
 				{props.label}
 			</div>
-			{props.children ? (
-				props.children
-			) : props.numLines ? (
+			{props.numLines ? (
 				<textarea
 					className="w-3/4 max-w-[350px] p-2 bg-popup-input-bg border-solid border-popup-input-border border-[1px] rounded-lg shadow-sm"
 					value={props.value}
