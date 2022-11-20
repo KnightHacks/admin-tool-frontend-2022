@@ -12,7 +12,7 @@ export default function Table(props: {
 }) {
 	return (
 		<>
-			<div className="h-full w-full overflow-auto p-5">
+			<div className="h-full w-full overflow-auto pt-5">
 				<table className="w-full border-collapse border-spacing-0 p-5">
 					<tbody>
 						<tr> {props.headerContent} </tr>
