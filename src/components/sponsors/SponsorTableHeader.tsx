@@ -1,12 +1,15 @@
-import { ReactComponent as SortIcon } from '../../assets/sponsors/sort.svg';
-import './sponsors.css';
+import { ReactComponent as CreateIcon } from '../../assets/sponsors/add.svg'
+import { ReactComponent as SortIcon } from '../../assets/sponsors/sort.svg'
+import './sponsors.css'
 
 export default function SponsorTableHeader({
 	namesAscending,
 	setNamesAscending,
+	createNewSponsor,
 }: {
-	namesAscending: boolean;
-	setNamesAscending: (namesAscending: boolean) => void;
+	namesAscending: boolean
+	setNamesAscending: (namesAscending: boolean) => void
+	createNewSponsor: () => void
 }) {
 	return (
 		<>
@@ -28,7 +31,14 @@ export default function SponsorTableHeader({
 			<th>Since</th>
 			<th>Level</th>
 			<th>Amount</th>
-			<th />
+			<th>
+				<button id="openSponsor" onClick={createNewSponsor}>
+					<div id="openSponsorContent">
+						<CreateIcon />
+						New Sponsor
+					</div>
+				</button>
+			</th>
 		</>
-	);
+	)
 }

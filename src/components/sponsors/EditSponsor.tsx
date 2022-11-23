@@ -2,8 +2,8 @@ import { useState } from 'react'
 import InputGroup from '../InputGroup'
 import { Sponsor, HackathonTier } from '../../models/sponsor'
 import './sponsors.css'
-import { dateToDateTimeLocalString } from '../../util/dateutil'
 import { Option, SelectGroup } from '../SelectGroup'
+import { Mode } from './SponsorTable'
 
 const emptySponsor: Sponsor = {
 	name: '',
@@ -12,7 +12,7 @@ const emptySponsor: Sponsor = {
 	id: '',
 	logo: '',
 	since: new Date(),
-	tier: HackathonTier.GOLD,
+	tier: HackathonTier.BRONZE,
 	website: '',
 }
 
@@ -25,19 +25,21 @@ const tierOptions: Option<HackathonTier>[] = [
 
 export default function EditSponsor({
 	selectedSponsor,
+	popUpMode,
 }: {
 	selectedSponsor: Sponsor | null
+	popUpMode: Mode
 }) {
 	const [sponsor, setSponsor] = useState<Sponsor>(
 		selectedSponsor ?? emptySponsor
 	)
 
 	const saveSponsor = () => {
-		// TODO
+		// TODO: If popUpMode == Mode.CREATE vs Mode.EDIT
 	}
 
 	const deleteSponsor = () => {
-		// TODO
+		// TODO: only called from edit, not available when creating
 	}
 
 	return (
@@ -45,7 +47,9 @@ export default function EditSponsor({
 			<span className="h-[1.5px] m-0 p-0 w-full bg-gray-200"></span>
 			<div className="flex justify-center items-center flex-col">
 				<div className="text-[28px] font-bold text-popup-heading">
-					Sponsor Details
+					{popUpMode === Mode.EDIT
+						? 'Sponsor Details'
+						: 'New Sponsor Details'}
 				</div>
 				<div className="flex items-center p-4 justify-center flex-col lg:flex-row w-10/12">
 					<div className="flex flex-col gap-2 w-full lg:w-1/2">
@@ -122,12 +126,14 @@ export default function EditSponsor({
 					>
 						Save Sponsor
 					</button>
-					<button
-						onClick={deleteSponsor}
-						className="bg-red-action-color p-2 text-white w-1/2 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
-					>
-						Delete Sponsor
-					</button>
+					{popUpMode === Mode.EDIT && (
+						<button
+							onClick={deleteSponsor}
+							className="bg-red-action-color p-2 text-white w-1/2 max-w-[400px] rounded-lg font-bold text-lg border-2 border-solid border-red-action-border flex items-center justify-center flex-row gap-3 hover:brightness-90"
+						>
+							Delete Sponsor
+						</button>
+					)}
 				</div>
 			</div>
 		</>

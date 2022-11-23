@@ -6,11 +6,17 @@ import SponsorTableHeader from './SponsorTableHeader'
 import Table from '../Table'
 import EditSponsor from './EditSponsor'
 
+export enum Mode {
+	CREATE,
+	EDIT,
+}
+
 export default function SponsorTable() {
 	const sponsorData: Array<Sponsor> = []
 	const [namesAscending, setNamesAscending] = useState(false)
 	const [selectedSponsor, setSelectedSponsor] = useState<Sponsor | null>(null)
 	const [popUpOpen, setPopUpOpen] = useState(false)
+	const [popUpMode, setPopUpMode] = useState(Mode.CREATE)
 
 	let dummySponsor: Sponsor = {
 		name: 'Knight Hacks',
@@ -42,7 +48,12 @@ export default function SponsorTable() {
 						{selectedSponsor?.name}
 					</div>
 				}
-				bodyContent={<EditSponsor selectedSponsor={selectedSponsor} />}
+				bodyContent={
+					<EditSponsor
+						selectedSponsor={selectedSponsor}
+						popUpMode={popUpMode}
+					/>
+				}
 			></PopUp>
 
 			{/* Table Component */}
@@ -53,6 +64,11 @@ export default function SponsorTable() {
 						setNamesAscending={(namesAscending) =>
 							setNamesAscending(namesAscending)
 						}
+						createNewSponsor={() => {
+							setPopUpMode(Mode.CREATE)
+							setPopUpOpen(true)
+							setSelectedSponsor(null)
+						}}
 					/>
 				}
 				bodyContent={
@@ -63,9 +79,10 @@ export default function SponsorTable() {
 									<SponsorRow
 										key={sponsor.id}
 										sponsor={sponsor}
-										setOpen={(isOpen) => {
+										editSponsor={(sponsor: Sponsor) => {
+											setPopUpMode(Mode.EDIT)
+											setPopUpOpen(true)
 											setSelectedSponsor(sponsor)
-											setPopUpOpen(isOpen)
 										}}
 									/>
 								</tr>

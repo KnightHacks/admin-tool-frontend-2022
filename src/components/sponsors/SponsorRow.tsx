@@ -5,10 +5,10 @@ import './sponsors.css'
 
 export default function SponsorRow({
 	sponsor,
-	setOpen,
+	editSponsor,
 }: {
 	sponsor: Sponsor
-	setOpen: (isOpen: boolean) => void
+	editSponsor: (editing: Sponsor) => void
 }) {
 	return (
 		<>
@@ -22,10 +22,10 @@ export default function SponsorRow({
 			<td>{sponsor.tier}</td>
 			<td>{`$${getAmount(sponsor.tier)}`}</td>
 			<td>
-				<button id="openSponsor" onClick={() => setOpen(true)}>
+				<button id="openSponsor" onClick={() => editSponsor(sponsor)}>
 					<div id="openSponsorContent">
 						<OpenIcon />
-						Open User
+						Open Sponsor
 					</div>
 				</button>
 			</td>
