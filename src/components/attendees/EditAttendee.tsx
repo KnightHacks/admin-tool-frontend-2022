@@ -9,8 +9,8 @@ import InputGroup from '../InputGroup'
 /***
  * @return form to edit attendee details.
  */
-export default function EditAttende(props: { selectedAttendee: Attendee }) {
-	const [attendee, setAttendee] = useState<Attendee>(props.selectedAttendee)
+export default function EditAttendee(props: { selectedAttendee: Attendee }) {
+	const [attendee, setAttendee] = useState<Attendee>(props.selectedAttendee);
 	return (
 		<>
 			<span className="h-[1.5px] m-0 p-0 w-full bg-gray-200"></span>

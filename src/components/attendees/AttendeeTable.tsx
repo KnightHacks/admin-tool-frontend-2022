@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { Attendee } from '../../models/attendee'
-import PopUp from '../PopUp'
-import Table from '../Table'
-import AttendeeRow from './AttendeeRow'
-import AttendeeTableHeader from './AttendeeTableHeader'
-import EditAttende from './EditAttendee'
+import { useState } from 'react';
+import PopUp from '../PopUp';
+import { Attendee } from '../../models/attendee';
+import AttendeeRow from './AttendeeRow';
+import AttendeeTableHeader from './AttendeeTableHeader';
+import EditAttendee from './EditAttendee';
+import Table from '../Table';
 
 /**
  * Creation of the Attendee Table component for the Attendee page. The filter for the Attendee Table will be applied here to display the corresponding hackers.
@@ -70,7 +70,7 @@ export default function AttendeeTable() {
 					</div>
 				}
 				bodyContent={
-					<EditAttende selectedAttendee={popUp.selectedAttendee} />
+					<EditAttendee selectedAttendee={popUp.selectedAttendee} />
 				}
 			></PopUp>
 			{/* Search Component */}
