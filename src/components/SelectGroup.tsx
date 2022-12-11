@@ -12,6 +12,7 @@ type Props<T extends OptionValue> = {
 	value: T
 	setValue: (value: T) => void
 	label: string
+	alignStart?: boolean
 }
 
 export function SelectGroup<T extends OptionValue>(props: Props<T>) {
@@ -20,9 +21,12 @@ export function SelectGroup<T extends OptionValue>(props: Props<T>) {
 		const selectedOption = props.options[selectedIndex]
 		props.setValue(selectedOption.value)
 	}
+	const alignItems = props.alignStart != null && props.alignStart == true
+		? ""
+		: "items-center"
 
 	return (
-		<div className="w-full flex flex-col items-center justify-start">
+		<div className={"w-full flex flex-col justify-start " + alignItems}>
 			<div className="text-[22px] max-w-[350px] font-medium text-left w-3/4">
 				{props.label}
 			</div>

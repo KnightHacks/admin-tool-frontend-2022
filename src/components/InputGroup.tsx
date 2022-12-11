@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute, ReactNode } from 'react'
+import { HTMLInputTypeAttribute } from 'react'
 
 /**
  * Creates an input with its corresponding label.
@@ -15,11 +15,16 @@ type InputGroupProps = {
 	label: string
 	type?: HTMLInputTypeAttribute
 	numLines?: number
+	alignStart?: boolean
 }
 
 export default function InputGroup(props: InputGroupProps) {
+	const alignItems = props.alignStart != null && props.alignStart == true
+		? ""
+		: "items-center"
+
 	return (
-		<div className={'w-full flex flex-col items-center justify-start'}>
+		<div className={"w-full flex flex-col justify-start " + alignItems}>
 			<div className="text-[22px] max-w-[350px] font-medium text-left w-3/4">
 				{props.label}
 			</div>
