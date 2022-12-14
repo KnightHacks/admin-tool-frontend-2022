@@ -1,4 +1,5 @@
 import HackathonInfoBar from '../components/hackathon/HackathonInfoBar'
+import HeaderBar from '../components/HeaderBar'
 import ScheduleDay from '../components/schedule/ScheduleDay'
 import { Event } from '../models/event'
 import { dummyHackathonData } from '../models/hackathon'
@@ -20,6 +21,7 @@ export default function Schedule() {
 	}
 	return (
 		<div>
+			<HeaderBar />
 			<HackathonInfoBar />
 			<div className="w-screen h-screen p-10">
 				<div className="h-auto w-full px-5">

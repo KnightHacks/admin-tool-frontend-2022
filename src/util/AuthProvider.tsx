@@ -12,15 +12,12 @@ interface AuthContextValues {
 	handleLogout: () => void
 }
 
-const login = async (
-	setToken: (newToken: string | null) => void,
-	setUser: (newUser: object | null) => void
-) => {
-	setToken('TODO')
-	setUser({})
-}
-
-const AuthContext = createContext<AuthContextValues | null>(null)
+const AuthContext = createContext<AuthContextValues>({
+	token: null,
+	user: null,
+	handleLogin: () => {},
+	handleLogout: () => {},
+})
 
 function AuthProvider({ children }: AuthParams) {
 	const [token, setToken] = useState<string | null>(null)
@@ -29,7 +26,8 @@ function AuthProvider({ children }: AuthParams) {
 	const navigate = useNavigate()
 
 	const handleLogin = async () => {
-		await login(setToken, setUser)
+		setToken('TODO')
+		setUser({})
 		navigate('/')
 	}
 
@@ -48,7 +46,7 @@ function AuthProvider({ children }: AuthParams) {
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
-function useAuth(): AuthContextValues | null {
+function useAuth(): AuthContextValues {
 	return useContext(AuthContext)
 }
 

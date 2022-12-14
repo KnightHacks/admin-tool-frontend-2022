@@ -1,7 +1,10 @@
+import HeaderBar from '../components/HeaderBar'
+
 export default function Logistics() {
-  return (
-    <div>
-      <h1>Logistics</h1>
-    </div>
-  )
+	return (
+		<div>
+			<HeaderBar />
+			<h1>Logistics</h1>
+		</div>
+	)
 }

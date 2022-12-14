@@ -6,11 +6,13 @@ import { ReactComponent as SettingsIcon } from '../assets/hackathon/settings.svg
 import { ReactComponent as SponsorsIcon } from '../assets/hackathon/sponsors.svg'
 import HackathonInfoBar from '../components/hackathon/HackathonInfoBar'
 import LaunchCard from '../components/hackathon/LaunchCard'
+import HeaderBar from '../components/HeaderBar'
 
 export default function Hackathon() {
 	let navigate = useNavigate()
 	return (
 		<>
+			<HeaderBar />
 			<HackathonInfoBar />
 			<div className="flex flex-wrap w-full justify-center mt-4">
 				<LaunchCard
