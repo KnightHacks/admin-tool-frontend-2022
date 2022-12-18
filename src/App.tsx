@@ -7,7 +7,6 @@ import Hackathon from './pages/hackathon'
 import Home from './pages/home'
 import Logistics from './pages/logistics'
 import Schedule from './pages/schedule'
-import Settings from './pages/settings'
 import Sponsors from './pages/sponsors'
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
 					<Route path="/hackathon" element={<Hackathon />} />
 					<Route path="/analytics" element={<Analytics />} />
 					<Route path="/logistics" element={<Logistics />} />
-					<Route path="/settings" element={<Settings />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
