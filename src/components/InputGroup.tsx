@@ -19,7 +19,7 @@ type InputGroupProps = {
 
 export default function InputGroup(props: InputGroupProps) {
 	return (
-		<div className={"w-full flex flex-col items-center justify-start"}>
+		<div className="w-full flex flex-col items-center justify-start">
 			<div className="text-[22px] max-w-[350px] font-medium text-left w-3/4">
 				{props.label}
 			</div>
