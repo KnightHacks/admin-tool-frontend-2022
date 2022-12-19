@@ -1,6 +1,6 @@
-import { ReactComponent as KHLogo } from '../assets/logo.svg';
-import { ReactComponent as DrawerHamburger } from '../assets/drawerHamburger.svg';
-import { Link } from 'react-router-dom';
+import { ReactComponent as KHLogo } from '../assets/logo.svg'
+import { ReactComponent as DrawerHamburger } from '../assets/drawerHamburger.svg'
+import { Link } from 'react-router-dom'
 
 export default function HeaderBar() {
 	return (
@@ -19,5 +19,5 @@ export default function HeaderBar() {
 				<div className="bg-orange-600 w-8 h-8 rounded-full" />
 			</Link>
 		</div>
-	);
+	)
 }

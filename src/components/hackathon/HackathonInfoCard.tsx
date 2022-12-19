@@ -1,7 +1,7 @@
 interface InfoCardProps {
-	label: string;
-	count: number;
-	onClick: () => void;
+	label: string
+	count: number
+	onClick: () => void
 }
 
 export default function HackathonInfoCard({
@@ -21,5 +21,5 @@ export default function HackathonInfoCard({
 				{label}
 			</p>
 		</button>
-	);
+	)
 }

@@ -3,7 +3,7 @@ import PopUp from '../PopUp';
 import { Attendee } from '../../models/attendee';
 import AttendeeRow from './AttendeeRow';
 import AttendeeTableHeader from './AttendeeTableHeader';
-import EditAttende from './EditAttendee';
+import EditAttendee from './EditAttendee';
 import Table from '../Table';
 
 /**
@@ -11,18 +11,18 @@ import Table from '../Table';
  * @returns the table of selected hackathon attendees.
  */
 export default function AttendeeTable() {
-	const attendeeData: Array<Attendee> = [];
-	const [search, setSearch] = useState('');
-	const [namesAscending, setNamesAscending] = useState(false);
+	const attendeeData: Array<Attendee> = []
+	const [search, setSearch] = useState('')
+	const [namesAscending, setNamesAscending] = useState(false)
 	const [popUp, setPopUp] = useState<{
-		seenAttendeePopUp: boolean;
-		selectedAttendee: Attendee;
-		open: boolean;
+		seenAttendeePopUp: boolean
+		selectedAttendee: Attendee
+		open: boolean
 	}>({
 		seenAttendeePopUp: false,
 		selectedAttendee: {},
 		open: false,
-	});
+	})
 
 	let blankAttendee: Attendee = {
 		firstName: 'Jane',
@@ -43,13 +43,13 @@ export default function AttendeeTable() {
 		phoneNumber: 'num',
 		age: 12,
 		role: 'attendee',
-	};
+	}
 	// TODO: Remove after adding APIs
 	for (var i = 0; i < 10; i++) {
 		attendeeData.push({
 			...blankAttendee,
 			id: '' + i,
-		});
+		})
 	}
 
 	return (
@@ -62,7 +62,7 @@ export default function AttendeeTable() {
 						...popUp,
 
 						open: isOpen,
-					}));
+					}))
 				}}
 				headerContent={
 					<div className=" text-popup-heading text-bold text-xl">
@@ -70,7 +70,7 @@ export default function AttendeeTable() {
 					</div>
 				}
 				bodyContent={
-					<EditAttende selectedAttendee={popUp.selectedAttendee} />
+					<EditAttendee selectedAttendee={popUp.selectedAttendee} />
 				}
 			></PopUp>
 			{/* Search Component */}
@@ -84,7 +84,7 @@ export default function AttendeeTable() {
 					type={'text'}
 					placeholder="Search Attendees"
 					onChange={(e) => {
-						setSearch(e.target.value);
+						setSearch(e.target.value)
 					}}
 				/>
 			</div>
@@ -95,7 +95,7 @@ export default function AttendeeTable() {
 					<AttendeeTableHeader
 						namesAscending={namesAscending}
 						setNamesAscending={(namesAscending) => {
-							setNamesAscending(namesAscending);
+							setNamesAscending(namesAscending)
 						}}
 					/>
 				}
@@ -114,22 +114,22 @@ export default function AttendeeTable() {
 													seenAttendeePopUp: true,
 													selectedAttendee: attendee,
 													open: isOpen,
-												});
+												})
 											} else {
 												setPopUp((popUp) => ({
 													...popUp,
 													selectedAttendee: attendee,
 													open: isOpen,
-												}));
+												}))
 											}
 										}}
 									/>
 								</tr>
-							);
+							)
 						})}
 					</>
 				}
 			></Table>
 		</>
-	);
+	)
 }

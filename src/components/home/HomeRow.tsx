@@ -1,5 +1,5 @@
 import { Hackathon, Term } from '../../models/hackathon';
-import { ReactComponent as OpenIcon } from '../../assets/Attendees/open.svg';
+import { ReactComponent as OpenIcon } from '../../assets/attendees/open.svg';
 import { Link } from 'react-router-dom';
 import './home.css';
 

@@ -1,22 +1,20 @@
 import '../components/home/home.css';
 import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg';
-import { ReactComponent as CreateHackathonIcon } from '../assets/home/createHackathonIcon.svg';
 import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg';
 import HomeTable from '../components/home/HomeTable';
 import { Link } from 'react-router-dom';
+import CreateHackathonButton from '../components/hackathon/CreateHackathonButton'
 
 export default function Home() {
 	// TODO: This user name should be generic.
-	let userName: string = 'John';
+	let userName: string = 'John'
 
 	const pageLinks = [
 		{ route: '/hackathon', buttonText: 'Go to Hackathon' },
 		{ route: '/attendees', buttonText: 'Attendees' },
 		{ route: '/sponsors', buttonText: 'Sponsors' },
-		{ route: '/edit-details', buttonText: 'Edit Details' },
-		{ route: '/schedule', buttonText: 'Schedule' },
-		{ route: '/settings', buttonText: 'Settings' },
-	];
+		{ route: '/schedule', buttonText: 'Schedule' }
+	]
 
 	return (
 		<div id="page">
@@ -42,11 +40,13 @@ export default function Home() {
 				<h1 id="page-links-header">Fall 2022</h1>
 
 				<div id="page-links-grid">
-					{pageLinks.map(({route, buttonText}) => (
+					{pageLinks.map(({ route, buttonText }) => (
 						<Link key={route} to={route}>
 							<button className="page-links-grid-button">
 								<PageLinksIcon className="page-links-grid-button-icon" />
-								<p className="page-links-grid-button-text">{buttonText}</p>
+								<p className="page-links-grid-button-text">
+									{buttonText}
+								</p>
 							</button>
 						</Link>
 					))}
@@ -55,17 +55,11 @@ export default function Home() {
 
 			<div id="page-subheader-2">
 				<h1 className="page-subheader-text">Recent Hackathons</h1>
-
-				<Link to="/">
-					<button id="page-subheader-2-button">
-						<CreateHackathonIcon />
-						<p>Create Hackathon</p>
-					</button>
-				</Link>
+				<CreateHackathonButton />
 			</div>
 
 			{/* Table Component */}
 			<HomeTable />
 		</div>
-	);
+	)
 }
