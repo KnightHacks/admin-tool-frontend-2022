@@ -42,3 +42,9 @@ docker run -itd -p 9090:9090 [--name <container_name>] <image_name>
 `-p 9090:9090` is required and based on the configured port in the Dockerfile and the NGINX config (default.config).
 
 You can now use the website through the url `http://localhost:9090` in your browser of choice.
+
+## Updating the API Submodule
+
+To get any changes made to the API submodule, run `git submodule update --remote`
+
+For a detailed guide of handling submodules, see [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
