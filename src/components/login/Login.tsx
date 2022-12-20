@@ -4,13 +4,10 @@ import { ReactComponent as KHLogo } from '../../assets/logo.svg'
 import { ReactComponent as GoogleLogo } from '../../assets/login/google.svg'
 import { ReactComponent as GitHubLogo } from '../../assets/login/github.svg'
 import { useAuth } from '../../util/AuthProvider'
+import { Provider } from '../../../knighthacks-api-js/src/types/types'
 
 export default function Login() {
 	const { handleLogin } = useAuth()
-
-	const tempLogin = () => {
-		handleLogin()
-	}
 
 	return (
 		<div id="page-container">
@@ -20,7 +17,10 @@ export default function Login() {
 			</div>
 			<div id="login-container">
 				<h1 id="login-header-text">Sign In</h1>
-				<button id="github-button" onClick={tempLogin}>
+				<button
+					id="github-button"
+					onClick={() => handleLogin(Provider.GITHUB)}
+				>
 					<p id="github-button-text">Sign in with GitHub</p>
 					<GitHubLogo id="github-button-icon" />
 				</button>
@@ -29,7 +29,10 @@ export default function Login() {
 					<p>OR</p>
 					<div className="or-seperator" />
 				</div>
-				<button id="google-button" onClick={tempLogin}>
+				<button
+					id="google-button"
+					onClick={() => handleLogin(Provider.GMAIL)}
+				>
 					<p>Sign in with </p>
 					<GoogleLogo id="google-button-icon" />
 				</button>

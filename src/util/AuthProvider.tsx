@@ -1,6 +1,7 @@
 import { ReactNode, useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { getAuthRedirectLink } from '../../knighthacks-api-js/src/api/api'
+import { JWT, Provider } from '../../knighthacks-api-js/src/types/types'
 interface AuthParams {
 	children?: ReactNode
 }
@@ -8,14 +9,14 @@ interface AuthParams {
 interface AuthContextValues {
 	token: string | null
 	user: object | null
-	handleLogin: () => void
+	handleLogin: (provider: Provider) => void
 	handleLogout: () => void
 }
 
 const AuthContext = createContext<AuthContextValues>({
 	token: null,
 	user: null,
-	handleLogin: () => {},
+	handleLogin: (provider: Provider) => {},
 	handleLogout: () => {},
 })
 
@@ -25,7 +26,14 @@ function AuthProvider({ children }: AuthParams) {
 	const [user, setUser] = useState<object | null>(null)
 	const navigate = useNavigate()
 
-	const handleLogin = async () => {
+	const handleLogin = async (provider: Provider) => {
+		// WIP
+		const authRedirectURL: string = await getAuthRedirectLink(
+			process.env.API_BASE || 'https://api-dev.knighthacks.org/',
+			provider
+		)
+		window.open(authRedirectURL)
+
 		setToken('TODO')
 		setUser({})
 		navigate('/')
