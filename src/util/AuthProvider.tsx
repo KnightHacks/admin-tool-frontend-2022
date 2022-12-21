@@ -2,10 +2,15 @@ import { ReactNode, useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 //import { Provider } from '../knighthacks-api-js/src/types/types'
 //import { getAuthRedirectLink } from '../knighthacks-api-js/src/api/api'
-import { Provider, getAuthRedirectLink } from 'knighthacks-api-js'
+//import { Provider, getAuthRedirectLink } from 'knighthacks-api-js'
 
 interface AuthParams {
 	children?: ReactNode
+}
+
+export enum Provider {
+	GITHUB = 'GITHUB',
+	GMAIL = 'GMAIL',
 }
 
 interface AuthContextValues {
@@ -30,11 +35,11 @@ function AuthProvider({ children }: AuthParams) {
 
 	const handleLogin = async (provider: Provider) => {
 		// WIP
-		const authRedirectURL: string = await getAuthRedirectLink(
-			process.env.API_BASE || 'https://api-dev.knighthacks.org/',
-			provider
-		)
-		window.open(authRedirectURL)
+		// const authRedirectURL: string = await getAuthRedirectLink(
+		// 	process.env.API_BASE || 'https://api-dev.knighthacks.org/',
+		// 	provider
+		// )
+		// window.open(authRedirectURL)
 
 		setToken('TODO')
 		setUser({})

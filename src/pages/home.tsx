@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom'
+import '../components/home/home.css'
 import { ReactComponent as PageLinksIcon } from '../assets/home/arrow.svg'
 import { ReactComponent as HackathonAnalyticsIcon } from '../assets/home/hackathonAnalyticsIcon.svg'
+import HomeTable from '../components/home/HomeTable'
+import { Link } from 'react-router-dom'
 import CreateHackathonButton from '../components/hackathon/CreateHackathonButton'
 import HeaderBar from '../components/HeaderBar'
-import '../components/home/home.css'
 
 export default function Home() {
 	// TODO: This user name should be generic.
@@ -13,7 +14,7 @@ export default function Home() {
 		{ route: '/hackathon', buttonText: 'Go to Hackathon' },
 		{ route: '/attendees', buttonText: 'Attendees' },
 		{ route: '/sponsors', buttonText: 'Sponsors' },
-		{ route: '/schedule', buttonText: 'Schedule' }
+		{ route: '/schedule', buttonText: 'Schedule' },
 	]
 
 	return (
@@ -60,7 +61,8 @@ export default function Home() {
 					<CreateHackathonButton />
 				</div>
 
-				{/* TODO: Add Table Component Here */}
+				{/* Table Component */}
+				<HomeTable />
 			</div>
 		</>
 	)
