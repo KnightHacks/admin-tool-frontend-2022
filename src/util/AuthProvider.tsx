@@ -1,7 +1,9 @@
 import { ReactNode, useState, createContext, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getAuthRedirectLink } from '../../knighthacks-api-js/src/api/api'
-import { JWT, Provider } from '../../knighthacks-api-js/src/types/types'
+//import { Provider } from '../knighthacks-api-js/src/types/types'
+//import { getAuthRedirectLink } from '../knighthacks-api-js/src/api/api'
+import { Provider, getAuthRedirectLink } from 'knighthacks-api-js'
+
 interface AuthParams {
 	children?: ReactNode
 }

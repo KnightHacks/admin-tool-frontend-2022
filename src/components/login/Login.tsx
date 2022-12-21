@@ -4,7 +4,7 @@ import { ReactComponent as KHLogo } from '../../assets/logo.svg'
 import { ReactComponent as GoogleLogo } from '../../assets/login/google.svg'
 import { ReactComponent as GitHubLogo } from '../../assets/login/github.svg'
 import { useAuth } from '../../util/AuthProvider'
-import { Provider } from '../../../knighthacks-api-js/src/types/types'
+import { Provider } from 'knighthacks-api-js'
 
 export default function Login() {
 	const { handleLogin } = useAuth()

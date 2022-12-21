@@ -1,3 +1,5 @@
+
 [submodule "knighthacks-api-js"]
 	path = knighthacks-api-js
 	url = https://github.com/KnightHacks/knighthacks-api-js
+    branch = eli
