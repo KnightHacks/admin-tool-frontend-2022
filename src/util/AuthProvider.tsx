@@ -1,8 +1,7 @@
 import { ReactNode, useState, createContext, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-//import { Provider } from '../knighthacks-api-js/src/types/types'
-//import { getAuthRedirectLink } from '../knighthacks-api-js/src/api/api'
-//import { Provider, getAuthRedirectLink } from 'knighthacks-api-js'
+//import { useNavigate } from 'react-router-dom'
+import { gql, useLazyQuery } from '@apollo/client'
+import { toast } from 'react-hot-toast'
 
 interface AuthParams {
 	children?: ReactNode
@@ -31,22 +30,35 @@ function AuthProvider({ children }: AuthParams) {
 	const [token, setToken] = useState<string | null>(null)
 	// TODO: Create a user interface once it's clear what we get back from login
 	const [user, setUser] = useState<object | null>(null)
-	const navigate = useNavigate()
+	//const navigate = useNavigate()
+
+	const GET_AUTH_LINK = gql`
+		query Request($provider: Provider!) {
+			getAuthRedirectLink(provider: $provider)
+		}
+	`
+
+	const [signInWithGithub] = useLazyQuery(GET_AUTH_LINK, {
+		variables: {
+			provider: 'GITHUB',
+		},
+	})
 
 	const handleLogin = async (provider: Provider) => {
-		// WIP
-		// const authRedirectURL: string = await getAuthRedirectLink(
-		// 	process.env.API_BASE || 'https://api-dev.knighthacks.org/',
-		// 	provider
-		// )
-		// window.open(authRedirectURL)
-
-		setToken('TODO')
-		setUser({})
-		navigate('/')
+		// TODO: Update with cookies
+		if (provider === Provider.GMAIL)
+			toast.error(
+				'This sign-in option is not yet available. Please use GitHub for now!'
+			)
+		else
+			signInWithGithub().then((data) => {
+				console.log(data.data.getAuthRedirectLink)
+				window.open(data.data.getAuthRedirectLink, '_self')
+			})
 	}
 
 	const handleLogout = () => {
+		// TODO: Update with cookies
 		setToken(null)
 		setUser(null)
 	}

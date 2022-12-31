@@ -17,6 +17,11 @@ export default function Home() {
 		{ route: '/schedule', buttonText: 'Schedule' },
 	]
 
+	console.log(localStorage.getItem('code'))
+	console.log(localStorage.getItem('state'))
+	console.log(localStorage.getItem('accessToken'))
+	console.log(localStorage.getItem('refreshToken'))
+
 	return (
 		<>
 			<HeaderBar />
