@@ -1,4 +1,5 @@
 import { ReactComponent as KHLogo } from '../assets/logo.svg'
+import { ReactComponent as ProfileIcon } from '../assets/profile.svg'
 import { Link } from 'react-router-dom'
 
 export default function HeaderBar() {
@@ -46,9 +47,11 @@ export default function HeaderBar() {
 			</Link>
 			{/* TODO: Change this button into a settings icon or some kind of menu icon */}
 			<button
-				className="bg-orange-600 w-8 h-8 rounded-full"
+				className="w-8 h-8 rounded-full"
 				onClick={openProfileSettings}
-			/>
+			>
+				<ProfileIcon />
+			</button>
 		</div>
 	)
 }

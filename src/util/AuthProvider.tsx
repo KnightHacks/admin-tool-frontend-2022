@@ -20,16 +20,16 @@ interface AuthContextValues {
 }
 
 const AuthContext = createContext<AuthContextValues>({
-	token: null,
-	user: null,
+	token: 'null',
+	user: {},
 	handleLogin: (provider: Provider) => {},
 	handleLogout: () => {},
 })
 
 function AuthProvider({ children }: AuthParams) {
-	const [token, setToken] = useState<string | null>(null)
+	const [token, setToken] = useState<string | null>('null')
 	// TODO: Create a user interface once it's clear what we get back from login
-	const [user, setUser] = useState<object | null>(null)
+	const [user, setUser] = useState<object | null>({})
 	//const navigate = useNavigate()
 
 	const GET_AUTH_LINK = gql`
