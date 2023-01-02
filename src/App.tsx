@@ -59,6 +59,10 @@ function App() {
 					<AuthProvider>
 						<Routes>
 							<Route path="/login" element={<LoginPage />} />
+							<Route
+								path="/auth_redirect"
+								element={<AuthRedirect />}
+							/>
 							<Route element={<ProtectedRoute />}>
 								<Route path="/" element={<Home />} />
 								<Route
@@ -86,10 +90,6 @@ function App() {
 									element={<Logistics />}
 								/>
 							</Route>
-							<Route
-								path="/auth_redirect"
-								element={<AuthRedirect />}
-							/>
 							<Route
 								path="*"
 								element={

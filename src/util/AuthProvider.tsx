@@ -1,5 +1,4 @@
 import { ReactNode, useState, createContext, useContext } from 'react'
-//import { useNavigate } from 'react-router-dom'
 import { gql, useLazyQuery } from '@apollo/client'
 import { toast } from 'react-hot-toast'
 
@@ -20,27 +19,26 @@ interface AuthContextValues {
 }
 
 const AuthContext = createContext<AuthContextValues>({
-	token: 'null',
-	user: {},
+	token: null,
+	user: null,
 	handleLogin: (provider: Provider) => {},
 	handleLogout: () => {},
 })
 
 function AuthProvider({ children }: AuthParams) {
-	const [token, setToken] = useState<string | null>('null')
-	// TODO: Create a user interface once it's clear what we get back from login
-	const [user, setUser] = useState<object | null>({})
-	//const navigate = useNavigate()
+	const [token, setToken] = useState<string | null>(null)
+	const [user, setUser] = useState<object | null>(null) // TODO: make a type
 
 	const GET_AUTH_LINK = gql`
-		query Request($provider: Provider!) {
-			getAuthRedirectLink(provider: $provider)
+		query Request($provider: Provider!, $redirect: String!) {
+			getAuthRedirectLink(provider: $provider, redirect: $redirect)
 		}
 	`
 
 	const [signInWithGithub] = useLazyQuery(GET_AUTH_LINK, {
 		variables: {
 			provider: 'GITHUB',
+			redirect: process.env.REACT_APP_OAUTH_AUTH_REDIRECT,
 		},
 	})
 
