@@ -59,6 +59,11 @@ function AuthProvider({ children }: AuthParams) {
 		// TODO: Update with cookies
 		setToken(null)
 		setUser(null)
+		// localStorage.removeItem("code");
+		// localStorage.removeItem("state");
+		// localStorage.removeItem("accessToken");
+		// localStorage.removeItem("refreshToken");
+		// window.location.reload();
 	}
 
 	const value = {

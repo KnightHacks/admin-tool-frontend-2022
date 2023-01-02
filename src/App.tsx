@@ -31,9 +31,7 @@ function ProtectedRoute({ redirectPath = '/login' }) {
 
 function App() {
 	const authLink = setContext((_, { headers }) => {
-		// get the authentication token from local storage if it exists
 		const token = localStorage.getItem('accessToken')
-		// return the headers to the context so httpLink can read them
 		return {
 			headers: {
 				...headers,
@@ -43,7 +41,7 @@ function App() {
 	})
 
 	const link = createHttpLink({
-		uri: process.env.API_BASE || 'https://api-dev.knighthacks.org/',
+		uri: process.env.REACT_APP_API_ENDPOINT,
 		credentials: 'include',
 	})
 
