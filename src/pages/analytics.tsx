@@ -1,7 +1,10 @@
+import HeaderBar from '../components/HeaderBar'
+
 export default function Analytics() {
-  return (
-    <div>
-      <h1>Analytics</h1>
-    </div>
-  )
+	return (
+		<div>
+			<HeaderBar />
+			<h1>Analytics</h1>
+		</div>
+	)
 }

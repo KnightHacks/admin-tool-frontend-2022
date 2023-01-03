@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@apollo/client": "^3.7.3",
 		"@headlessui/react": "^1.7.3",
 		"@heroicons/react": "^2.0.10",
 		"@testing-library/jest-dom": "^5.16.5",
@@ -15,10 +16,14 @@
 		"@types/react-select": "^5.0.1",
 		"babel-loader": "^9.1.0",
 		"dayjs": "^1.11.6",
+		"fetch-cookie": "^2.1.0",
 		"moment": "^2.29.4",
+		"node-fetch": "^3.3.0",
 		"nth-check": "^2.1.1",
 		"react": "^18.2.0",
+		"react-cookie": "^4.1.1",
 		"react-dom": "^18.2.0",
+		"react-hot-toast": "^2.4.0",
 		"react-router-dom": "^6.3.0",
 		"react-scripts": "5.0.1",
 		"react-select": "^5.6.0",
@@ -53,6 +58,7 @@
 	"devDependencies": {
 		"autoprefixer": "^10.4.8",
 		"postcss": "^8.4.16",
-		"tailwindcss": "^3.1.8"
+		"tailwindcss": "^3.1.8",
+		"util": "^0.12.5"
 	}
 }
