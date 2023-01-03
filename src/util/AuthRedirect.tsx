@@ -1,12 +1,6 @@
 import { useEffect } from 'react'
 import { gql, useLazyQuery } from '@apollo/client'
-import makeFetchCookie from 'fetch-cookie'
 import { toast } from 'react-hot-toast'
-
-const fetchCookie = makeFetchCookie(
-	fetch,
-	new makeFetchCookie.toughCookie.CookieJar()
-)
 
 export default function AuthRedirect() {
 	const LOGIN = gql`

@@ -16,7 +16,6 @@
 		"@types/react-select": "^5.0.1",
 		"babel-loader": "^9.1.0",
 		"dayjs": "^1.11.6",
-		"fetch-cookie": "^2.1.0",
 		"moment": "^2.29.4",
 		"node-fetch": "^3.3.0",
 		"nth-check": "^2.1.1",
