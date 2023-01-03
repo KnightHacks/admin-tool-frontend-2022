@@ -12,6 +12,13 @@ cd admin-tool-frontend-2022
 npm install
 ```
 
+You will also need to create a .env file at the top level directory of the project. The contents should contain the following keys:
+
+```
+# The URL of the Knight Hacks API you are targeting - ex: https://api-dev.knighthacks.org/
+API_ENDPOINT=
+```
+
 ## Getting Started
 
 To run a live development server, run the following in a terminal:
