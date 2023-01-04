@@ -1,0 +1,65 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Automatic Release
+
+# Controls when the workflow will run
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+  # Allows you to run this workflow manually from the Actions tab
+  # workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  get-labels:
+    if: ${{github.event.pull_request.merged == true && !startsWith(github.head_ref, 'release/')}}
+    runs-on: ubuntu-latest
+    outputs:
+      labels: ${{ steps.match-label.outputs.match }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: match-label
+        shell: bash
+        run: |
+          chmod +x .github/workflows/get-label.sh
+          .github/workflows/get-label.sh -n 'major, minor, patch' -l '${{ join(github.event.pull_request.labels.*.name, ', ') }}'
+          echo "::set-output name=match::$(cat match.txt)"
+
+  semver-version:
+    runs-on: ubuntu-latest
+    needs:
+      - get-labels
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: zwaldowski/semver-release-action@v2
+        id: version
+        with:
+          bump: ${{ needs.get-labels.outputs.labels }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prefix: 'v'
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - semver-version
+    steps:
+      - name: Run release workflow
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.TOKEN }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: 'KnightHacks',
+              repo: 'admin-tool-frontend-2022',
+              workflow_id: 'release.yaml',
+              ref: 'main',
+              inputs: {
+                version: '${{ needs.semver-version.outputs.version }}',
+              },
+            })

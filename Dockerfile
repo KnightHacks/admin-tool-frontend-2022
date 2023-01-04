@@ -1,11 +1,8 @@
 FROM node:18 AS build-env
 WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm ci --omit=dev
-
 COPY . ./
+RUN npm i --omit=dev
 RUN npm run build
 
 # stage - release ############
@@ -17,4 +14,4 @@ COPY ./default.conf /etc/nginx/conf.d
 # copy web assets from build stage above
 COPY --from=build-env /app/build/. ./
 # expose is the same as listen directive in the nginx custom config.
-EXPOSE 9090
+EXPOSE 8080

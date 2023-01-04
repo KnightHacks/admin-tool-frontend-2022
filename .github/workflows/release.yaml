@@ -1,0 +1,128 @@
+name: Release
+
+# Credit to https://github.com/KnightHacks/hackathon-2021-backend
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version Number (semver: 1.2.3)'
+        required: true
+
+env:
+  VERSION: ${{ github.event.inputs.version }}
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  # github.repository as <account>/<repo>
+  IMAGE_NAME: ${{ github.repository }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      #Login against a Docker registry except on PR
+      #https://github.com/docker/login-action
+      - name: Log into registry ${{ env.REGISTRY }}
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate build ID
+        id: prep
+        run: |
+          branch=${GITHUB_REF##*/}
+          sha=${GITHUB_SHA::8}
+          ts=$(date +%s)
+          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+
+      # Extract metadata (tags, labels) for Docker
+      # https://github.com/docker/metadata-action
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+            type=raw,value=${{ steps.prep.outputs.BUILD_ID }}
+            type=raw,value=${{ env.VERSION }}
+      # Build and push Docker image with Buildx (don't push on PR)
+      # https://github.com/docker/build-push-action
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+  release:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: ${{ env.VERSION }}
+          prerelease: false
+          title: ${{ env.VERSION }}
+
+  create-release:
+    needs:
+      - release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create release branch
+        run: git checkout -b release/${{ env.VERSION }}
+
+      - name: Init git config
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email noreply@github.com
+      - name: Update Changelog
+        uses: thomaseizinger/keep-a-changelog-new-release@v1
+        with:
+          version: ${{ env.VERSION }}
+
+      - name: Commit changelog and version in package
+        id: make-commit
+        run: |
+          git add CHANGELOG.md
+          git commit --message "Prepare release ${{ env.VERSION }}"
+          echo "::set-output name=commit::$(git rev-parse HEAD)"
+
+      - name: Push commit
+        run: |
+          git push origin release/${{ env.VERSION }}
+      - name: Create pull request into main
+        uses: thomaseizinger/create-pull-request@1.2.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          head: release/${{ env.VERSION }}
+          base: main
+          title: ${{ env.VERSION }} into main
+          reviewers: ${{ github.event.issue.user.login }}
+          body: |
+            This PR was created when the Create Release workflow was run.
+            I've updated the version name and code commit: ${{ steps.make-commit.outputs.commit }}.
+      - name: Create pull request into development
+        uses: thomaseizinger/create-pull-request@1.2.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          head: release/${{ env.VERSION }}
+          base: development
+          title: ${{ env.VERSION }} into development
+          reviewers: ${{ github.event.issue.user.login }}
+          body: |
+            This PR was created when the Create Release workflow was run.
+            I've updated the version name and code commit: ${{ steps.make-commit.outputs.commit }}.
