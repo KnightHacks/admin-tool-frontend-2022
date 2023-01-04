@@ -1,8 +1,11 @@
 import { useEffect } from 'react'
 import { gql, useLazyQuery } from '@apollo/client'
-import { toast } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
+import { Role } from '../models/user'
 
 export default function AuthRedirect() {
+	const navigate = useNavigate()
+
 	const LOGIN = gql`
 		query Login($code: String!, $provider: Provider!, $state: String!) {
 			login(code: $code, provider: $provider, state: $state) {
@@ -10,6 +13,10 @@ export default function AuthRedirect() {
 				accountExists
 				encryptedOAuthAccessToken
 				refreshToken
+				user {
+					id
+					role
+				}
 			}
 		}
 	`
@@ -35,16 +42,32 @@ export default function AuthRedirect() {
 
 		login().then((res) => {
 			if (res.error) {
-				console.log(res)
-				toast.error(
-					'Error logging in. Please try again. If the problem persists, please contact team@knighthacks.com with the error message below'
-				)
+				navigate('/login', {
+					replace: true,
+					state: {
+						failedLogin: true,
+						shouldContact: true,
+						errorMsg: 'Error logging in: ' + res.error,
+					},
+				})
 			} else if (res.data) {
 				if (!res.data.login.accountExists) {
-					toast.error(
-						'Login failed: no account exists for this user.'
-					)
-					window.location.pathname = '/login'
+					navigate('/login', {
+						replace: true,
+						state: {
+							failedLogin: true,
+							errorMsg: 'No account exists for this user!',
+						},
+					})
+				} else if (res.data.user.role !== Role.ADMIN) {
+					navigate('/login', {
+						replace: true,
+						state: {
+							failedLogin: true,
+							errorMsg:
+								"You don't have access to the admin dashboard!",
+						},
+					})
 				} else {
 					localStorage.setItem(
 						'accessToken',
@@ -54,7 +77,9 @@ export default function AuthRedirect() {
 						'refreshToken',
 						res.data.login.refreshToken
 					)
-					window.location.pathname = '/'
+					navigate('/', {
+						replace: true,
+					})
 				}
 			}
 		})

@@ -10,18 +10,13 @@ export interface User {
 	id: string
 	// oAuth was left out for unclear importance
 	phoneNumber: string
-	pronouns: Pronouns
+	pronouns: string
 	role: Role
 }
 
-export interface Pronouns {
-	objective: string
-	subjective: string
-}
-
 export enum Role {
-	ADMIN,
-	NORMAL,
-	OWNS,
-	SPONSOR,
+	ADMIN = 'ADMIN',
+	NORMAL = 'NORMAL',
+	SPONSOR = 'SPONSOR',
+	NONE = 'NONE',
 }

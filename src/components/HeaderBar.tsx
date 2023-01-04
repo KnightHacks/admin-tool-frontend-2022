@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { UserCircleIcon } from '@heroicons/react/20/solid'
-import { useAuth } from '../util/AuthProvider'
 
 export default function HeaderBar() {
-	const { handleLogout } = useAuth()
+	const handleLogout = () => {
+		localStorage.removeItem('code')
+		localStorage.removeItem('state')
+		localStorage.removeItem('accessToken')
+		localStorage.removeItem('refreshToken')
+		window.location.reload()
+	}
 
 	return (
 		<div className="flex mb-2 justify-between w-full p-4 shadow-headerbar">
