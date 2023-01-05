@@ -6,6 +6,7 @@ import { Role } from '../models/user'
 export default function AuthRedirect() {
 	const navigate = useNavigate()
 
+	// TODO: Put user and role/id back in here, store id somewhere
 	const LOGIN = gql`
 		query Login($code: String!, $provider: Provider!, $state: String!) {
 			login(code: $code, provider: $provider, state: $state) {
@@ -13,10 +14,10 @@ export default function AuthRedirect() {
 				accountExists
 				encryptedOAuthAccessToken
 				refreshToken
-				user {
-					id
-					role
-				}
+                user {
+                    id
+                    role
+                }
 			}
 		}
 	`
@@ -59,7 +60,7 @@ export default function AuthRedirect() {
 							errorMsg: 'No account exists for this user!',
 						},
 					})
-				} else if (res.data.user.role !== Role.ADMIN) {
+				} else if (res.data.user && res.data.user.role !== Role.ADMIN) {
 					navigate('/login', {
 						replace: true,
 						state: {
